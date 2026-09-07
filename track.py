@@ -1,68 +1,63 @@
 """Pick performance tracking + the feedback loop into the daily analysis.
 
-Every daily run appends its picks to data/picks_log.jsonl (entry price = the
-close the signal was based on, plus the model's declared signal_type). Two
-consumers:
+Every daily run records its picks to the DB (data/picks_log.jsonl's
+successor — see db.py) with entry price + the model's declared signal_type.
+Two consumers:
 
 - grade() / `python track.py`: scorecard of every pick vs current prices and
   vs the index over the same window (alpha), broken down by signal type and
-  conviction -> reports/scorecard.md.
+  conviction -> reports/scorecard.md (also printed for the Actions step
+  summary).
 - performance_context(market): compact text summary of the bot's own track
   record, injected into the Claude prompt each day so the analysis calibrates
   against what has actually been working.
 """
 
 import datetime as dt
-import json
 
-from config import DATA_DIR, MARKETS, REPORTS_DIR
-from prices import snapshot
-
-LOG_PATH = DATA_DIR / "picks_log.jsonl"
+import db
+from config import REPORTS_DIR
 
 
 def record_picks(market: str, context: dict, analysis: dict):
-    """Append today's picks (with entry prices) to the log. Called by run_daily.
+    """Persist today's picks (with entry prices) to the DB. Called by run_daily.
 
-    Idempotent per (date, market, ticker) so a same-day re-run doesn't
-    double-log.
+    Idempotent per (date, market, ticker) via the DB's own UNIQUE constraint.
     """
     closes = {m["ticker"]: m["close"] for m in context["movers"]}
     closes |= {e["ticker"]: e["close"] for e in context.get("etfs", [])}
     idx = context.get("index")
-    existing = {(r["date"], r["market"], r["ticker"]) for r in _load_log()}
-    stock_picks = [(p, p.get("signal_type", "other")) for p in analysis["picks"]]
-    etf_picks = [(p, "etf") for p in analysis.get("etf_picks", [])]
-    DATA_DIR.mkdir(exist_ok=True)
-    with LOG_PATH.open("a") as f:
-        for p, signal_type in stock_picks + etf_picks:
-            if p["ticker"] not in closes:
-                continue  # model referenced a name outside the provided data
-            if (context["date"], market, p["ticker"]) in existing:
-                continue
-            f.write(json.dumps({
-                "date": context["date"],
-                "market": market,
-                "ticker": p["ticker"],
-                "name": p["name"],
-                "conviction": int(p["conviction"]),
-                "signal_type": signal_type,
-                "entry_close": closes[p["ticker"]],
-                "index_entry_close": idx["close"] if idx else None,
-            }) + "\n")
+    index_entry_close = idx["close"] if idx else None
 
-
-def _load_log() -> list[dict]:
-    if not LOG_PATH.exists():
-        return []
-    rows = [json.loads(line) for line in LOG_PATH.read_text().splitlines() if line.strip()]
-    for r in rows:  # rows logged before signal_type existed
-        r.setdefault("signal_type", "untagged")
-    return rows
+    rows = []
+    for p in analysis["picks"]:
+        if p["ticker"] not in closes:
+            continue  # model referenced a name outside the provided data
+        rows.append({
+            "ticker": p["ticker"], "name": p["name"], "kind": "stock",
+            "conviction": int(p["conviction"]),
+            "signal_type": p.get("signal_type", "other"),
+            "entry_close": closes[p["ticker"]],
+            "index_entry_close": index_entry_close,
+        })
+    for p in analysis.get("etf_picks", []):
+        if p["ticker"] not in closes:
+            continue
+        rows.append({
+            "ticker": p["ticker"], "name": p["name"], "kind": "etf",
+            "conviction": int(p["conviction"]), "signal_type": "etf",
+            "entry_close": closes[p["ticker"]],
+            "index_entry_close": index_entry_close,
+        })
+    if rows:
+        db.save_picks(market, context["date"], rows)
 
 
 def _grade_rows(rows: list[dict]) -> list[dict]:
     """Attach return_pct / alpha_pct / days_held at current prices."""
+    from config import MARKETS
+    from prices import snapshot
+
     tickers = sorted({r["ticker"] for r in rows})
     index_tickers = sorted({MARKETS[r["market"]]["index_ticker"] for r in rows})
     snap = snapshot(tickers + index_tickers)
@@ -106,7 +101,7 @@ def _agg(graded: list[dict], key) -> list[tuple[str, int, float, float, int, int
 
 def performance_context(market: str, max_recent: int = 15) -> str | None:
     """The bot's own track record as prompt text, or None if no history yet."""
-    rows = [r for r in _load_log() if r["market"] == market]
+    rows = db.load_picks(market)
     if not rows:
         return None
     graded = _grade_rows(rows)
@@ -137,7 +132,7 @@ def performance_context(market: str, max_recent: int = 15) -> str | None:
 
 
 def grade() -> str | None:
-    rows = _load_log()
+    rows = db.load_picks()
     if not rows:
         print("No picks logged yet — run run_daily.py first.")
         return None

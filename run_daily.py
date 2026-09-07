@@ -1,7 +1,8 @@
 """Daily entry point: python run_daily.py [--market us|india|both]
 
 Per market: universe -> price snapshot -> top movers -> headlines ->
-Claude analysis -> markdown + JSON report under reports/.
+Claude analysis -> markdown report (local, for convenience) + Turso DB
+(runs, market_snapshot, picks, reports — the durable record, see db.py).
 """
 
 import argparse
@@ -9,6 +10,7 @@ import datetime as dt
 import sys
 
 import config
+import db
 from analyze import analyze
 from news import macro_headlines, ticker_headlines
 from notify import send_report, telegram_configured
@@ -47,6 +49,21 @@ def build_context(market: str) -> dict:
     }
 
 
+def _snapshot_rows(context: dict) -> list[dict]:
+    rows = []
+    if context.get("index"):
+        rows.append({"ticker": config.MARKETS[context["market"]]["index_ticker"],
+                     "name": config.MARKETS[context["market"]]["index_name"],
+                     "role": "index", **context["index"]})
+    for m in context["movers"]:
+        rows.append({"ticker": m["ticker"], "name": m["name"], "role": "mover",
+                     "close": m["close"], "pct_1d": m["pct_1d"], "pct_5d": m["pct_5d"]})
+    for e in context.get("etfs", []):
+        rows.append({"ticker": e["ticker"], "name": e["name"], "role": "etf",
+                     "close": e["close"], "pct_1d": e["pct_1d"], "pct_5d": e["pct_5d"]})
+    return rows
+
+
 def run(market: str, telegram: bool = True) -> str:
     context = build_context(market)
     context["track_record"] = performance_context(market)
@@ -55,8 +72,15 @@ def run(market: str, telegram: bool = True) -> str:
     print(f"[{market}] analyzing with {config.CLAUDE_MODEL}...")
     analysis = analyze(market, context)
     md_path, json_path = save(market, context, analysis)
+
+    db.save_market_snapshot(market, context["date"], _snapshot_rows(context))
+    db.save_report(market, context["date"], analysis)
     record_picks(market, context, analysis)
+    db.record_run(market, context["date"], "success",
+                   num_picks=len(analysis["picks"]),
+                   num_etf_picks=len(analysis.get("etf_picks", [])))
     print(f"[{market}] report: {md_path}")
+
     if telegram and telegram_configured():
         send_report(config.MARKETS[market]["label"], context, analysis, md_path)
         print(f"[{market}] sent to Telegram")
@@ -76,6 +100,10 @@ def main():
             run(m, telegram=not args.no_telegram)
         except Exception as e:  # one market failing shouldn't kill the other
             print(f"[{m}] FAILED: {e}", file=sys.stderr)
+            try:
+                db.record_run(m, dt.date.today().isoformat(), "failed", error=str(e))
+            except Exception as db_err:
+                print(f"[{m}] also failed to record failure to DB: {db_err}", file=sys.stderr)
             failures.append(m)
     sys.exit(1 if failures else 0)
 

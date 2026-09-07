@@ -12,12 +12,13 @@ Daily news-driven directional digest for the **S&P 500 (US)** and **Nifty 50
 4. Has Claude (`claude-sonnet-5`) digest it into ranked **buy candidates**
    with conviction (1–5), thesis, catalysts, risks, and horizon, plus a
    watchlist and an avoid list (`analyze.py`).
-5. Writes `reports/<date>_<market>.md` (human) and `.json` (raw).
-6. Logs each pick + entry price to `data/picks_log.jsonl` (`track.py`) and
-   sends a summary message + the full report to Telegram (`notify.py`) via
-   the dedicated **Daily Bull-etin** bot (`@daily_bulletin_stocks_bot`,
-   token + private chat id in this project's `.env`); skip with
-   `--no-telegram`.
+5. Writes `reports/<date>_<market>.md` locally for convenience (git-ignored —
+   not the source of truth, see Database below).
+6. Records the run, the day's market snapshot, every pick + entry price, and
+   the full digest into a Turso (hosted SQLite) database (`db.py`), and sends
+   a summary message + the full report to Telegram (`notify.py`) via the
+   dedicated **Daily Bull-etin** bot (`@daily_bulletin_stocks_bot`, token +
+   private chat id in this project's `.env`); skip with `--no-telegram`.
 
 It generates research signals only — it does **not** place trades, and its
 output is informational, not financial advice.
@@ -46,6 +47,34 @@ Venv (Python 3.12 — the macOS system python3 is 3.9 and too old):
 `config.py`: number of movers scanned, headlines per query, number of picks,
 macro news queries per market, model.
 
+## Database (Turso)
+
+All durable state — run history, the day's market snapshot (index/movers/
+ETFs), every pick with entry price, and the full digest content — lives in a
+private Turso (hosted SQLite/libSQL) database (`db.py`), not in the repo.
+This means the repo can safely be made public: nothing about what the bot
+picks, or how it's performed, is visible in git history or file listings.
+
+`db.py` talks to Turso's plain HTTP pipeline API directly via `requests`
+rather than the `libsql-client` package — that package's sync client hangs/
+fails its websocket handshake against current Turso servers; the raw HTTP
+API works cleanly and needs no extra dependency.
+
+Needs `TURSO_DATABASE_URL` + `TURSO_AUTH_TOKEN` (in `.env` locally, repo
+secrets in CI). To set up your own:
+
+```
+brew install tursodatabase/tap/turso
+turso auth login
+turso db create daily-bulletin
+turso db show daily-bulletin --url      # -> TURSO_DATABASE_URL
+turso db tokens create daily-bulletin   # -> TURSO_AUTH_TOKEN
+```
+
+`scripts/migrate_to_db.py` is the one-time migration that moved the original
+JSONL/JSON-file history into the DB — not needed again unless rebuilding
+from scratch.
+
 ## Performance tracking + feedback loop
 
 ```
@@ -72,14 +101,15 @@ machine needs to be on:
 - **India**: Mon–Fri 02:30 UTC (8:00 AM IST) — before NSE opens at 9:15 IST.
 - Manual: Actions tab → "Daily Bull-etin" → Run workflow (pick market).
 
-Each run commits `data/` (pick log — the model's self-calibration memory)
-and `reports/` back to the repo, so state persists across ephemeral runners.
-Secrets required on the repo: `ANTHROPIC_API_KEY`, `TELEGRAM_BOT_TOKEN`,
-`TELEGRAM_CHAT_ID`.
+State persists in the Turso DB (see above), not via git commits — each
+ephemeral runner reads/writes the same remote DB, so no commit-back step is
+needed and the repo's file listing never changes day to day. Secrets
+required on the repo: `ANTHROPIC_API_KEY`, `TELEGRAM_BOT_TOKEN`,
+`TELEGRAM_CHAT_ID`, `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN`.
 
-The old local launchd agents in `scheduling/` are retired — if they're
-still loaded, remove with `launchctl bootout gui/$(id -u)/com.pankaj.stock-signal-us`
-(same for `-india`).
+The old local launchd agents are retired — if any are still loaded, remove
+with `launchctl bootout gui/$(id -u)/com.pankaj.stock-signal-us` (same for
+`-india`).
 
 ## Not built yet / ideas
 

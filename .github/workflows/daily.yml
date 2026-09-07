@@ -21,8 +21,6 @@ concurrency:
 jobs:
   digest:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -49,22 +47,14 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
         run: python run_daily.py --market "${{ steps.market.outputs.market }}"
 
       - name: Refresh scorecard
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python track.py
-
-      - name: Commit state back (pick log, caches, reports)
+          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
         run: |
-          git config user.name "daily-bulletin-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add data reports
-          if git diff --cached --quiet; then
-            echo "nothing to commit"
-          else
-            git commit -m "digest: ${{ steps.market.outputs.market }} $(date -u +%F)"
-            git pull --rebase origin main
-            git push
-          fi
+          python track.py
+          cat reports/scorecard.md >> "$GITHUB_STEP_SUMMARY"

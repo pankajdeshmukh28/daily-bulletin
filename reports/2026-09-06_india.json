@@ -1,0 +1,778 @@
+{
+ "context": {
+  "date": "2026-09-06",
+  "market": "india",
+  "index": {
+   "close": 23771.55,
+   "pct_1d": -0.53,
+   "pct_5d": -1.28
+  },
+  "macro_headlines": [
+   {
+    "title": "Indian stock markets remain closed on account of Good Friday | Akashvani News - News On AIR",
+    "source": "News On AIR",
+    "published": "Sun, 06 Sep 2026 21:31:03 GMT"
+   },
+   {
+    "title": "Stock market today: Trade guide for Sensex, Nifty 50, crude oil to gold | eight stocks to buy - Livemint",
+    "source": "Livemint",
+    "published": "Mon, 07 Sep 2026 01:46:22 GMT"
+   },
+   {
+    "title": "Stock Market Today: All You Need To Know Before Going Into Trade On Sept 7 - NDTV Profit",
+    "source": "NDTV Profit",
+    "published": "Mon, 07 Sep 2026 00:30:01 GMT"
+   },
+   {
+    "title": "Sensex Today Trades Lower | Nifty Below 23,900 | Tech Mahindra & Infosys Top Losers - Equitymaster",
+    "source": "Equitymaster",
+    "published": "Mon, 07 Sep 2026 04:50:20 GMT"
+   },
+   {
+    "title": "Stock Markets Today: Sensex, Nifty Dip as West Asia Conflict, US Rate Hike Concerns Weigh - Rediff",
+    "source": "Rediff",
+    "published": "Mon, 07 Sep 2026 05:30:26 GMT"
+   },
+   {
+    "title": "Stock market today: Nifty, Sensex to open flat as US-Iran tensions push up crude oil prices - BusinessLine",
+    "source": "BusinessLine",
+    "published": "Mon, 07 Sep 2026 02:23:17 GMT"
+   },
+   {
+    "title": "Stock Market Today: Gift Nifty To Crude Oil Prices \u2014 Five Key Factors That May Drive Sensex, Nifty 50 On September 7 - NDTV Profit",
+    "source": "NDTV Profit",
+    "published": "Mon, 07 Sep 2026 01:26:03 GMT"
+   },
+   {
+    "title": "Stocks to buy under \u20b9100: Sumeet Bagadia recommends 3 shares for today | Target price, stop-loss, buying range - Livemint",
+    "source": "Livemint",
+    "published": "Mon, 07 Sep 2026 02:21:27 GMT"
+   },
+   {
+    "title": "Sensex, Nifty Signal Flat-to-Weak Open as Crude, Fed Risks Weigh - HDFC Sky",
+    "source": "HDFC Sky",
+    "published": "Mon, 07 Sep 2026 05:13:28 GMT"
+   },
+   {
+    "title": "Pre-Market Update: Nifty 50, Sensex Likely to Open Lower as GIFT Nifty Signals Weak Start - Dalal Street Investment Journal",
+    "source": "Dalal Street Investment Journal",
+    "published": "Mon, 07 Sep 2026 02:18:40 GMT"
+   },
+   {
+    "title": "SENSEX falls over 250 points, NIFTY50 below 23,850 dragged by IT stocks - Upstox",
+    "source": "Upstox",
+    "published": "Mon, 07 Sep 2026 03:58:51 GMT"
+   },
+   {
+    "title": "Markets decline amid West Asia conflict, concerns over possible U.S. interest-rate hike - The Hindu",
+    "source": "The Hindu",
+    "published": "Mon, 07 Sep 2026 05:10:47 GMT"
+   },
+   {
+    "title": "Sensex, Nifty trade lower in early deals amid geopolitical concerns - ddnews.gov.in",
+    "source": "ddnews.gov.in",
+    "published": "Mon, 07 Sep 2026 02:51:25 GMT"
+   },
+   {
+    "title": "Nifty 50 Slumps Nearly 1,000 Points In 25 Sessions. What's Driving The Selloff, Key Levels Ahead - NDTV Profit",
+    "source": "NDTV Profit",
+    "published": "Mon, 07 Sep 2026 05:45:03 GMT"
+   },
+   {
+    "title": "RBI keeps repo rate unchanged; Projects India\u2019s real GDP growth for current fiscal at 6.9% | Akashvani News - News On AIR",
+    "source": "News On AIR",
+    "published": "Sun, 06 Sep 2026 22:29:28 GMT"
+   },
+   {
+    "title": "Why too much money in the banking system is a problem for the RBI - The Indian Express",
+    "source": "The Indian Express",
+    "published": "Mon, 07 Sep 2026 03:10:00 GMT"
+   },
+   {
+    "title": "RBI MPC meeting begins; inflation, growth outlook in focus - ddnews.gov.in",
+    "source": "ddnews.gov.in",
+    "published": "Sat, 05 Sep 2026 19:47:13 GMT"
+   },
+   {
+    "title": "India holds strong: How government & RBI worked to shield economy from US-Iran war - The Times of India",
+    "source": "The Times of India",
+    "published": "Sun, 06 Sep 2026 13:10:00 GMT"
+   },
+   {
+    "title": "RBI's Oct 7 call: lock an FD now, or hold for a cut? - indianpaycalculator.in",
+    "source": "indianpaycalculator.in",
+    "published": "Sun, 06 Sep 2026 09:46:42 GMT"
+   },
+   {
+    "title": "Ahead of the curve in managing inflation - The Economic Times",
+    "source": "The Economic Times",
+    "published": "Sun, 06 Sep 2026 17:50:00 GMT"
+   },
+   {
+    "title": "Dollar deluge from FCNR push to test RBI's liquidity drain toolkit - IndiaIPO",
+    "source": "IndiaIPO",
+    "published": "Sun, 06 Sep 2026 00:06:33 GMT"
+   },
+   {
+    "title": "RBI \u20b97 Lakh Crore VRRR: Banks Face a New Liquidity Test - NiftyTrader",
+    "source": "NiftyTrader",
+    "published": "Sat, 05 Sep 2026 06:37:46 GMT"
+   },
+   {
+    "title": "Chartered Accountants play an indispensable role in strengthening India\u2019s economy: VP Radhakrishnan - News On AIR",
+    "source": "News On AIR",
+    "published": "Sun, 06 Sep 2026 23:41:49 GMT"
+   },
+   {
+    "title": "India\u2019s GDP grew 7.8%, but why did its global ranking fall to sixth? - Global Times",
+    "source": "Global Times",
+    "published": "Sun, 06 Sep 2026 13:34:00 GMT"
+   },
+   {
+    "title": "Shri Bhupender Yadav calls on 4th Indo-German Environment Forum to Strengthen Knowledge, Scale Solutions and Build Stronger Institutional Capacity in Environmental Conservation - pib.gov.in",
+    "source": "pib.gov.in",
+    "published": "Mon, 07 Sep 2026 03:57:56 GMT"
+   },
+   {
+    "title": "India\u2019s economy at the crossroads - Greater Kashmir",
+    "source": "Greater Kashmir",
+    "published": "Mon, 07 Sep 2026 01:10:40 GMT"
+   },
+   {
+    "title": "Why did India slip to the World's 6th-largest economy despite impressive GDP growth of 7.8 percent? | Explain - india.com",
+    "source": "india.com",
+    "published": "Mon, 07 Sep 2026 03:56:44 GMT"
+   },
+   {
+    "title": "Reality Check - The Statesman",
+    "source": "The Statesman",
+    "published": "Mon, 07 Sep 2026 04:06:46 GMT"
+   },
+   {
+    "title": "India\u2019s economy grows 7.7% in FY 2025-26; Q4 growth accelerates to 7.8% - ddnews.gov.in",
+    "source": "ddnews.gov.in",
+    "published": "Sat, 05 Sep 2026 19:41:50 GMT"
+   }
+  ],
+  "movers": [
+   {
+    "ticker": "POWERGRID.NS",
+    "name": "Power Grid",
+    "close": 268.15,
+    "pct_1d": 0.81,
+    "pct_5d": 1.75,
+    "headlines": [
+     {
+      "title": "German Police Secure Explosive Devices Targeting Power Grid - Livemint",
+      "source": "Livemint",
+      "published": "Sat, 05 Sep 2026 14:32:50 GMT"
+     },
+     {
+      "title": "3 Indian Growth Stocks With Earnings Growth Of At Least 30% - simplywall.st",
+      "source": "simplywall.st",
+      "published": "Sun, 06 Sep 2026 04:40:46 GMT"
+     },
+     {
+      "title": "American Electric Power stock holds steady as federal loan backs Texas grid upgrade - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 07:23:05 GMT"
+     },
+     {
+      "title": "Is Primoris Services (PRIM) Cheap Following Its Board Appointments? - simplywall.st",
+      "source": "simplywall.st",
+      "published": "Sun, 06 Sep 2026 18:30:34 GMT"
+     },
+     {
+      "title": "3 Utility Stocks Tied To Long Term AI Data Center Power Deals - simplywall.st",
+      "source": "simplywall.st",
+      "published": "Sun, 06 Sep 2026 12:21:04 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "TATACONSUM.NS",
+    "name": "Tata Consumer Products",
+    "close": 1016.3,
+    "pct_1d": 0.62,
+    "pct_5d": -2.04,
+    "headlines": [
+     {
+      "title": "Tata Consumer Products approves \u20b910 dividend at 63rd AGM - scanx.trade",
+      "source": "scanx.trade",
+      "published": "Sun, 06 Sep 2026 05:50:08 GMT"
+     },
+     {
+      "title": "NOVYRA Share Price Today - Bansisons Tea Industries Ltd. Stock Price Live NSE/BSE - Univest",
+      "source": "Univest",
+      "published": "Mon, 07 Sep 2026 02:33:47 GMT"
+     },
+     {
+      "title": "Top Nifty50 stocks analysts suggest buying in this volatile week - The Economic Times",
+      "source": "The Economic Times",
+      "published": "Mon, 07 Sep 2026 03:56:51 GMT"
+     },
+     {
+      "title": "Indian equities open higher amid monsoon revival, FII inflows - ddnews.gov.in",
+      "source": "ddnews.gov.in",
+      "published": "Sat, 05 Sep 2026 20:13:43 GMT"
+     },
+     {
+      "title": "Bajaj Consumer Care Share Price Today Up 6% - Equitymaster",
+      "source": "Equitymaster",
+      "published": "Sat, 05 Sep 2026 16:58:33 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "LT.NS",
+    "name": "Larsen & Toubro",
+    "close": 3986.1,
+    "pct_1d": 0.55,
+    "pct_5d": -1.45,
+    "headlines": [
+     {
+      "title": "Markets decline amid West Asia conflict, concerns over possible US interest-rate hike - The New Indian Express",
+      "source": "The New Indian Express",
+      "published": "Mon, 07 Sep 2026 04:44:48 GMT"
+     },
+     {
+      "title": "Red Monday: Sensex, Nifty slump as crude oil surge, Fed rate jitters drag Indian equities down - theweek.in",
+      "source": "theweek.in",
+      "published": "Mon, 07 Sep 2026 05:47:20 GMT"
+     },
+     {
+      "title": "L&T Technology Services promoter declares no encumbrance on 73.57% shares - scanx.trade",
+      "source": "scanx.trade",
+      "published": "Sun, 06 Sep 2026 06:25:16 GMT"
+     },
+     {
+      "title": "Stocks To Watch Today: ICICI Bank, RVNL, JSW Steel, Lupin And Brigade Enterprises - NDTV Profit",
+      "source": "NDTV Profit",
+      "published": "Mon, 07 Sep 2026 01:30:01 GMT"
+     },
+     {
+      "title": "Larsen & Toubro Ltd. Upgraded to Buy on Improved Valuation and Financial Metrics - marketsmojo.com",
+      "source": "marketsmojo.com",
+      "published": "Sat, 05 Sep 2026 23:33:31 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "APOLLOHOSP.NS",
+    "name": "Apollo Hospitals",
+    "close": 8696.0,
+    "pct_1d": 0.53,
+    "pct_5d": -2.28,
+    "headlines": [
+     {
+      "title": "Purple Style Labs share price makes a weak debut, stock opens with a 7% discount at \u20b9535 apiece on NSE - Livemint",
+      "source": "Livemint",
+      "published": "Mon, 07 Sep 2026 04:29:46 GMT"
+     },
+     {
+      "title": "ABH Share Price Today - ABH HEALTHCARE LIMITED Stock Price Live NSE/BSE - Univest",
+      "source": "Univest",
+      "published": "Sun, 06 Sep 2026 08:36:35 GMT"
+     },
+     {
+      "title": "Festive stock picks: 10 stocks to buy ahead of the festive season. Do you own any? - The Economic Times",
+      "source": "The Economic Times",
+      "published": "Sun, 06 Sep 2026 06:14:30 GMT"
+     },
+     {
+      "title": "How Asian markets, crude will impact Sensex, Nifty: What GIFT Nifty, Nikkei, Kospi, Taiwan index signals for India - Livemint",
+      "source": "Livemint",
+      "published": "Mon, 07 Sep 2026 02:01:58 GMT"
+     },
+     {
+      "title": "Nifty\u2019s technical setup weakens; 100-DMA key to recovery - Livemint",
+      "source": "Livemint",
+      "published": "Mon, 07 Sep 2026 00:49:10 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "DRREDDY.NS",
+    "name": "Dr. Reddy's Laboratories",
+    "close": 1156.3,
+    "pct_1d": 0.46,
+    "pct_5d": 0.16,
+    "headlines": [
+     {
+      "title": "Torrent recalls select Semalix injection disposable pens - scanx.trade",
+      "source": "scanx.trade",
+      "published": "Sun, 06 Sep 2026 06:31:28 GMT"
+     },
+     {
+      "title": "Top 14 Pharma Stocks To Buy In India September 2026 - Samco",
+      "source": "Samco",
+      "published": "Sun, 06 Sep 2026 06:51:02 GMT"
+     },
+     {
+      "title": "SYMBIOTEC Share Price Today - SYMBIOTEC PHARMALAB LTD Stock Price Live NSE/BSE - Univest",
+      "source": "Univest",
+      "published": "Sun, 06 Sep 2026 08:36:22 GMT"
+     },
+     {
+      "title": "US FDA completes inspection at Dr. Reddy's Srikakulam unit, issues Form 483 - scanx.trade",
+      "source": "scanx.trade",
+      "published": "Sun, 06 Sep 2026 09:51:34 GMT"
+     },
+     {
+      "title": "Immutep (ASX:IMM): What Could Be the Next Major Catalyst? - kalkine.com.au",
+      "source": "kalkine.com.au",
+      "published": "Mon, 07 Sep 2026 02:19:00 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "BEL.NS",
+    "name": "Bharat Electronics",
+    "close": 406.95,
+    "pct_1d": 0.39,
+    "pct_5d": -1.81,
+    "headlines": [
+     {
+      "title": "BEL Q1 FY27 revenue rises 25% to \u20b95,533 crore on strong execution - scanx.trade",
+      "source": "scanx.trade",
+      "published": "Sun, 06 Sep 2026 22:39:07 GMT"
+     },
+     {
+      "title": "Red Monday: Sensex, Nifty slump as crude oil surge, Fed rate jitters drag Indian equities down - theweek.in",
+      "source": "theweek.in",
+      "published": "Mon, 07 Sep 2026 05:47:20 GMT"
+     },
+     {
+      "title": "Stock Markets Today: Sensex, Nifty Dip as West Asia Conflict, US Rate Hike Concerns Weigh - Rediff",
+      "source": "Rediff",
+      "published": "Mon, 07 Sep 2026 05:30:26 GMT"
+     },
+     {
+      "title": "Buy, Sell Or Hold: Paytm, LIC, Mazagon Dock, BEL And Varun Beverages \u2014 Ask Profit - NDTV Profit",
+      "source": "NDTV Profit",
+      "published": "Sun, 06 Sep 2026 16:22:13 GMT"
+     },
+     {
+      "title": "Top 19 PSU Stocks In India To Buy In September 2026 - Samco",
+      "source": "Samco",
+      "published": "Sat, 05 Sep 2026 06:51:01 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "BAJFINANCE.NS",
+    "name": "Bajaj Finance",
+    "close": 1063.3,
+    "pct_1d": 0.26,
+    "pct_5d": 0.6,
+    "headlines": [
+     {
+      "title": "Emami promoters pledge and release shares with Bajaj Finance, DBS Bank - scanx.trade",
+      "source": "scanx.trade",
+      "published": "Sun, 06 Sep 2026 20:55:13 GMT"
+     },
+     {
+      "title": "Manappuram Finance Share Price in Focus After Decline - Univest",
+      "source": "Univest",
+      "published": "Mon, 07 Sep 2026 04:02:00 GMT"
+     },
+     {
+      "title": "Top 3 stocks to buy with target price, stop-loss: Expert Sumeet Bagadia shares recommendations for today - Livemint",
+      "source": "Livemint",
+      "published": "Mon, 07 Sep 2026 02:59:27 GMT"
+     },
+     {
+      "title": "Sensex, Nifty surged nearly 4% following announcement of ceasefire agreement between Washington and Tehran - News On AIR",
+      "source": "News On AIR",
+      "published": "Sun, 06 Sep 2026 17:23:17 GMT"
+     },
+     {
+      "title": "Bonus + Stock Splits + Dividends + Buybacks From June 29-July 3: Bajaj, M&M, Biocon, TechM; 46 Stocks In Focus - Goodreturns",
+      "source": "Goodreturns",
+      "published": "Sun, 06 Sep 2026 09:18:48 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "ICICIBANK.NS",
+    "name": "ICICI Bank",
+    "close": 1424.9,
+    "pct_1d": 0.12,
+    "pct_5d": -2.0,
+    "headlines": [
+     {
+      "title": "ICICI Bank shares in focus as LIC gets RBI nod to acquire 9.99% stake in private lender - The Economic Times",
+      "source": "The Economic Times",
+      "published": "Mon, 07 Sep 2026 03:32:21 GMT"
+     },
+     {
+      "title": "Stocks to watch: LIC, ICICI Bank, SBI, Dixon, Chalet Hotels, TCS & more - Business Standard",
+      "source": "Business Standard",
+      "published": "Mon, 07 Sep 2026 02:22:57 GMT"
+     },
+     {
+      "title": "ICICI Bank, SBI, HDFC Bank, DCB, SIB shares: Target prices as credit growth improves - Business Today",
+      "source": "Business Today",
+      "published": "Mon, 07 Sep 2026 02:34:29 GMT"
+     },
+     {
+      "title": "Stocks To Watch Today: ICICI Bank, RVNL, JSW Steel, Lupin And Brigade Enterprises - NDTV Profit",
+      "source": "NDTV Profit",
+      "published": "Mon, 07 Sep 2026 01:30:01 GMT"
+     },
+     {
+      "title": "LIC gets RBI nod to raise ICICI Bank stake to 9.99%; \u20b959.39 trillion AUM gives insurer room to deepen exposure - Fortune India",
+      "source": "Fortune India",
+      "published": "Sun, 06 Sep 2026 16:23:55 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "INFY.NS",
+    "name": "Infosys",
+    "close": 1092.8,
+    "pct_1d": -3.29,
+    "pct_5d": -3.62,
+    "headlines": [
+     {
+      "title": "Infosys Share Price Update: Price Action and Peer Check - Univest",
+      "source": "Univest",
+      "published": "Mon, 07 Sep 2026 04:11:00 GMT"
+     },
+     {
+      "title": "Nifty IT falls over 1%; Infosys, Tech Mahindra, HCL Tech lead losses as Fed rate hike bets rise - Moneycontrol.com",
+      "source": "Moneycontrol.com",
+      "published": "Mon, 07 Sep 2026 03:59:09 GMT"
+     },
+     {
+      "title": "Nifty IT Tumbles 2%: Infosys, LTM, Mphasis, Tech Mahindra Fall Up To 3% \u2014 Why? - NDTV Profit",
+      "source": "NDTV Profit",
+      "published": "Mon, 07 Sep 2026 04:29:03 GMT"
+     },
+     {
+      "title": "Sensex Today Trades Lower | Nifty Below 23,900 | Tech Mahindra & Infosys Top Losers - Equitymaster",
+      "source": "Equitymaster",
+      "published": "Mon, 07 Sep 2026 04:50:20 GMT"
+     },
+     {
+      "title": "TCS, HCL, Wipro, Infosys Bleeding: Why Are IT Stocks Down? Check Q1 Result Dates, Preview, Dividend Rewards - Goodreturns",
+      "source": "Goodreturns",
+      "published": "Sun, 06 Sep 2026 11:37:01 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "TECHM.NS",
+    "name": "Tech Mahindra",
+    "close": 1557.4,
+    "pct_1d": -2.47,
+    "pct_5d": -4.34,
+    "headlines": [
+     {
+      "title": "Nifty IT falls over 1%; Infosys, Tech Mahindra, HCL Tech lead losses as Fed rate hike bets rise - Moneycontrol.com",
+      "source": "Moneycontrol.com",
+      "published": "Mon, 07 Sep 2026 03:59:09 GMT"
+     },
+     {
+      "title": "Nifty IT Tumbles 2%: Infosys, LTM, Mphasis, Tech Mahindra Fall Up To 3% \u2014 Why? - NDTV Profit",
+      "source": "NDTV Profit",
+      "published": "Mon, 07 Sep 2026 04:29:03 GMT"
+     },
+     {
+      "title": "Sensex Today Trades Lower | Nifty Below 23,900 | Tech Mahindra & Infosys Top Losers - Equitymaster",
+      "source": "Equitymaster",
+      "published": "Mon, 07 Sep 2026 04:50:20 GMT"
+     },
+     {
+      "title": "SENSEX falls over 250 points, NIFTY50 below 23,850 dragged by IT stocks - Upstox",
+      "source": "Upstox",
+      "published": "Mon, 07 Sep 2026 03:58:51 GMT"
+     },
+     {
+      "title": "Bonus + Stock Splits + Dividends + Buybacks From June 29-July 3: Bajaj, M&M, Biocon, TechM; 46 Stocks In Focus - Goodreturns",
+      "source": "Goodreturns",
+      "published": "Sun, 06 Sep 2026 09:18:48 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "TRENT.NS",
+    "name": "Trent",
+    "close": 2792.0,
+    "pct_1d": -2.14,
+    "pct_5d": -3.05,
+    "headlines": [
+     {
+      "title": "Stock recommendations for 7 September from MarketSmith India - TradingView",
+      "source": "TradingView",
+      "published": "Mon, 07 Sep 2026 03:33:00 GMT"
+     },
+     {
+      "title": "Raja Venkatraman recommends three stocks for 7 September - Livemint",
+      "source": "Livemint",
+      "published": "Mon, 07 Sep 2026 00:37:37 GMT"
+     },
+     {
+      "title": "Dividend, Bonus Issue, Stock Split Record Dates to Mark: Reliance, Infosys, Adani, Tata, Trent, Inox and More - Goodreturns",
+      "source": "Goodreturns",
+      "published": "Sun, 06 Sep 2026 11:54:11 GMT"
+     },
+     {
+      "title": "Raja Venkatraman recommends three stocks for 7 September - TradingView",
+      "source": "TradingView",
+      "published": "Mon, 07 Sep 2026 03:48:00 GMT"
+     },
+     {
+      "title": "Air ambulance charity to use artificial intelligence for donated goods - Greater Birmingham Chambers of Commerce",
+      "source": "Greater Birmingham Chambers of Commerce",
+      "published": "Mon, 07 Sep 2026 03:56:15 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "TATASTEEL.NS",
+    "name": "Tata Steel",
+    "close": 184.87,
+    "pct_1d": -2.08,
+    "pct_5d": 0.28,
+    "headlines": [
+     {
+      "title": "Tata Steel Share Price Decline: Price Action and Sector - Univest",
+      "source": "Univest",
+      "published": "Mon, 07 Sep 2026 05:37:00 GMT"
+     },
+     {
+      "title": "Tata Steel, JSW Steel, Jindal Steel: Price targets as coking coal prices rise - Business Today",
+      "source": "Business Today",
+      "published": "Mon, 07 Sep 2026 05:08:00 GMT"
+     },
+     {
+      "title": "Tata Steel And JSW Steel Rated Buy Amid 26% Monthly Coking-Coal Inflation - Sahi",
+      "source": "Sahi",
+      "published": "Mon, 07 Sep 2026 04:32:05 GMT"
+     },
+     {
+      "title": "Stocks to buy: 23,800\u201323,600 crucial support for Nifty, says Anand Rathi's Jigar Patel, suggests 3 stock picks - Livemint",
+      "source": "Livemint",
+      "published": "Mon, 07 Sep 2026 03:34:09 GMT"
+     },
+     {
+      "title": "Tata Steel Q1FY27 EBITDA rises 25% to \u20b99,370 crore on India strength - scanx.trade",
+      "source": "scanx.trade",
+      "published": "Sun, 06 Sep 2026 08:09:46 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "WIPRO.NS",
+    "name": "Wipro",
+    "close": 173.22,
+    "pct_1d": -1.8,
+    "pct_5d": -6.11,
+    "headlines": [
+     {
+      "title": "TCS, HCL, Wipro, Infosys Bleeding: Why Are IT Stocks Down? Check Q1 Result Dates, Preview, Dividend Rewards - Goodreturns",
+      "source": "Goodreturns",
+      "published": "Mon, 07 Sep 2026 04:47:14 GMT"
+     },
+     {
+      "title": "Stock Picks Today: HUL, LTIMindtree, Wipro, Fortis Healthcare, Avalon Technologies, And More On Brokerages' Radar - NDTV Profit",
+      "source": "NDTV Profit",
+      "published": "Mon, 07 Sep 2026 01:24:41 GMT"
+     },
+     {
+      "title": "Wipro Stock Update: Shares Slip Over 1% on Goldman Sachs 'Sell' Rating - LatestLY",
+      "source": "LatestLY",
+      "published": "Mon, 07 Sep 2026 05:07:46 GMT"
+     },
+     {
+      "title": "Wipro stock: Goldman Sachs maintains Sell with a Rs 172 target, sees about 3% downside - Business Upturn",
+      "source": "Business Upturn",
+      "published": "Mon, 07 Sep 2026 03:15:46 GMT"
+     },
+     {
+      "title": "TBO Tek stock: Goldman Sachs maintains Buy with 7% upside and a Rs 1,800 target - Business Upturn",
+      "source": "Business Upturn",
+      "published": "Mon, 07 Sep 2026 03:25:23 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "HCLTECH.NS",
+    "name": "HCLTech",
+    "close": 1271.9,
+    "pct_1d": -1.66,
+    "pct_5d": -3.07,
+    "headlines": [
+     {
+      "title": "Sterlite Technologies Share Price - Live NSE: STLTECH Stock Price & Chart - Upstox",
+      "source": "Upstox",
+      "published": "Sat, 05 Sep 2026 06:56:29 GMT"
+     },
+     {
+      "title": "Nifty IT falls nearly 2%; Infosys, LTM, Wipro, HCLTech among top losers \u2014 Why are IT stocks falling? - Zee Business",
+      "source": "Zee Business",
+      "published": "Mon, 07 Sep 2026 05:14:20 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "JIOFIN.NS",
+    "name": "Jio Financial Services",
+    "close": 235.6,
+    "pct_1d": -1.63,
+    "pct_5d": -2.38,
+    "headlines": [
+     {
+      "title": "Jio Financial Services Q1FY27 net profit rises 156% YoY - scanx.trade",
+      "source": "scanx.trade",
+      "published": "Sun, 06 Sep 2026 07:29:54 GMT"
+     },
+     {
+      "title": "Jio Financial Services Ltd is Rated Sell - marketsmojo.com",
+      "source": "marketsmojo.com",
+      "published": "Sat, 05 Sep 2026 23:21:36 GMT"
+     },
+     {
+      "title": "SENSEX falls over 250 points, NIFTY50 below 23,850 dragged by IT stocks - Upstox",
+      "source": "Upstox",
+      "published": "Mon, 07 Sep 2026 03:58:51 GMT"
+     },
+     {
+      "title": "Manappuram Finance Share Price in Focus After Decline - Univest",
+      "source": "Univest",
+      "published": "Mon, 07 Sep 2026 04:02:00 GMT"
+     },
+     {
+      "title": "Jio Financial Services Releases Q4 FY26 Earnings Call Transcript with Business Updates - scanx.trade",
+      "source": "scanx.trade",
+      "published": "Sun, 06 Sep 2026 05:53:47 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "ULTRACEMCO.NS",
+    "name": "UltraTech Cement",
+    "close": 11237.0,
+    "pct_1d": -1.5,
+    "pct_5d": -1.86,
+    "headlines": [
+     {
+      "title": "UltraTech Cement board to meet on July 20 for Q1FY27 results - scanx.trade",
+      "source": "scanx.trade",
+      "published": "Sun, 06 Sep 2026 08:16:08 GMT"
+     },
+     {
+      "title": "Markets decline amid West Asia conflict, concerns over possible US interest-rate hike - newindianexpress.com",
+      "source": "newindianexpress.com",
+      "published": "Mon, 07 Sep 2026 04:44:48 GMT"
+     },
+     {
+      "title": "Raja Venkatraman recommends three stocks for 7 September - Livemint",
+      "source": "Livemint",
+      "published": "Mon, 07 Sep 2026 00:37:37 GMT"
+     },
+     {
+      "title": "Indian Stock Market News, Equity Market and Sensex Today in India - Equitymaster",
+      "source": "Equitymaster",
+      "published": "Mon, 07 Sep 2026 00:30:01 GMT"
+     },
+     {
+      "title": "Top 17 Cement Stocks To Buy In India September 2026 - Samco",
+      "source": "Samco",
+      "published": "Sat, 05 Sep 2026 06:51:03 GMT"
+     }
+    ]
+   }
+  ]
+ },
+ "analysis": {
+  "market_summary": "Nifty extended its slide (-0.53% to 23,771.55, -1.28% over 5 days) as crude-driven West Asia tensions and Fed rate-hike jitters weighed on sentiment, with IT stocks bearing the brunt of the selloff. RBI held rates steady while projecting 6.9% GDP growth, offering a stabilizing macro backdrop even as the index tests key technical support near 23,600-23,800. Defensive/domestic-cyclical names (defense, cement, banks) held up better than export-linked IT, which fell 2-4% on Fed-driven dollar strength fears.",
+  "picks": [
+   {
+    "ticker": "LT.NS",
+    "name": "Larsen & Toubro",
+    "conviction": 4,
+    "thesis": "L&T was upgraded to Buy on improved valuation and financial metrics per marketsmojo.com, and the stock rose +0.55% even as the broader index fell -0.53%, showing relative strength. Its infra/domestic-capex exposure insulates it from the IT-specific selloff driving today's weakness.",
+    "catalysts": "Analyst upgrade momentum, continued government capex spending, order-book updates",
+    "risks": "Broader market weakness from crude/Fed concerns could still drag large-caps lower; 5d trend still negative (-1.45%)",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "BEL.NS",
+    "name": "Bharat Electronics",
+    "conviction": 4,
+    "thesis": "BEL posted strong Q1 FY27 revenue growth of 25% YoY to \u20b95,533 crore on strong execution, and the stock gained +0.39% despite the broader Sensex/Nifty selloff on crude/Fed concerns. It also features on lists of top PSU stocks to buy for September, indicating continued institutional interest in the defense theme.",
+    "catalysts": "Continued order execution, defense sector tailwinds, inclusion in PSU buy lists",
+    "risks": "5d performance still negative (-1.81%), broader market risk-off sentiment could cap PSU rally",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "TATASTEEL.NS",
+    "name": "Tata Steel",
+    "conviction": 3,
+    "thesis": "Despite a -2.08% daily drop, Tata Steel reported Q1FY27 EBITDA rising 25% to \u20b99,370 crore on India strength, and is rated Buy alongside JSW Steel amid 26% monthly coking-coal inflation supporting price targets. This looks like an overdone pullback given the strong fundamental print and positive analyst commentary.",
+    "risks": "Coking coal cost inflation could pressure margins if not passed through; steel sector sensitive to China demand and global commodity cycles",
+    "catalysts": "Price target upgrades from Business Today/Sahi, continued strong domestic EBITDA execution",
+    "time_horizon": "3-8 weeks"
+   },
+   {
+    "ticker": "ICICIBANK.NS",
+    "name": "ICICI Bank",
+    "conviction": 3,
+    "thesis": "ICICI Bank held up relatively well (+0.12% vs Nifty -0.53%) after LIC received RBI approval to raise its stake to 9.99%, a vote of confidence from India's largest insurer with \u20b959.39 trillion AUM. Target prices are being revised upward as credit growth improves per Business Today.",
+    "catalysts": "LIC stake increase execution, credit growth acceleration, target price upgrades",
+    "risks": "5d trend still down -2.00%; broader banking sector exposed to RBI liquidity/VRRR actions and rate uncertainty",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "TATACONSUM.NS",
+    "name": "Tata Consumer Products",
+    "conviction": 3,
+    "thesis": "Tata Consumer approved a \u20b910 dividend at its 63rd AGM and rose +0.62% today, bucking the weak tape, while being named among Nifty50 stocks analysts suggest buying in this volatile week per Economic Times.",
+    "catalysts": "Dividend payout support, defensive consumer staples positioning amid volatility, analyst buy recommendations",
+    "risks": "5d trend still negative (-2.04%), consumer staples sensitive to input cost/monsoon-linked demand shifts",
+    "time_horizon": "2-6 weeks"
+   }
+  ],
+  "watchlist": [
+   {
+    "ticker": "APOLLOHOSP.NS",
+    "name": "Apollo Hospitals",
+    "reason": "Modest +0.53% gain and featured in festive season stock-pick lists, but limited fresh fundamental news; 5d trend still down -2.28%."
+   },
+   {
+    "ticker": "DRREDDY.NS",
+    "name": "Dr. Reddy's Laboratories",
+    "reason": "Slight gain (+0.46%) but US FDA Form 483 at Srikakulam unit and Torrent's separate injection recall in the sector are worth monitoring for read-through risk."
+   },
+   {
+    "ticker": "HCLTECH.NS",
+    "name": "HCLTech",
+    "reason": "Part of the broad IT selloff (-1.66%) tied to Fed rate concerns; watch for stabilization before considering entry given no company-specific negative news."
+   },
+   {
+    "ticker": "ULTRACEMCO.NS",
+    "name": "UltraTech Cement",
+    "reason": "Down -1.50% with Q1FY27 results board meeting pending; featured in cement buy lists but no fresh catalyst yet."
+   }
+  ],
+  "avoid": [
+   {
+    "ticker": "WIPRO.NS",
+    "name": "Wipro",
+    "reason": "Goldman Sachs maintains a Sell rating with a \u20b9172 target (about 3% downside), and the stock is down -1.80% daily and -6.11% over 5 days with no offsetting positive catalyst."
+   },
+   {
+    "ticker": "JIOFIN.NS",
+    "name": "Jio Financial Services",
+    "reason": "Despite Q1FY27 net profit rising 156% YoY, the stock is rated Sell by marketsmojo.com and fell -1.63%, suggesting the market/analysts see the earnings beat as already priced in or facing headwinds."
+   },
+   {
+    "ticker": "INFY.NS",
+    "name": "Infosys",
+    "reason": "Biggest loser in the universe (-3.29% daily, -3.62% 5d) as Nifty IT tumbles on Fed rate-hike bets; no stock-specific positive catalyst to offset sector-wide pressure."
+   }
+  ]
+ }
+}

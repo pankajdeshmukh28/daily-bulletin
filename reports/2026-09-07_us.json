@@ -1,0 +1,1220 @@
+{
+ "context": {
+  "date": "2026-09-07",
+  "market": "us",
+  "index": {
+   "close": 7718.6,
+   "pct_1d": -0.38,
+   "pct_5d": 0.09
+  },
+  "macro_headlines": [
+   {
+    "title": "Is the Stock Market Open Today? Here Are the Trading Hours for Labor Day. - Barron's",
+    "source": "Barron's",
+    "published": "Mon, 07 Sep 2026 04:01:00 GMT"
+   },
+   {
+    "title": "Dow Jones Futures Fall With Iran, Apple, Inflation In Focus; Nvidia, Micron, Sandisk Flash Buy Signals - Investor's Business Daily",
+    "source": "Investor's Business Daily",
+    "published": "Mon, 07 Sep 2026 03:14:00 GMT"
+   },
+   {
+    "title": "Is the stock market open on Labor Day? NYSE, Nasdaq hours today - Cincinnati Enquirer",
+    "source": "Cincinnati Enquirer",
+    "published": "Mon, 07 Sep 2026 04:12:39 GMT"
+   },
+   {
+    "title": "Is Stock Market Open Today on Labor Day 2026? - State Street SPDR S&P 500 ETF Trust (ARCA:SPY) - Benzinga",
+    "source": "Benzinga",
+    "published": "Mon, 07 Sep 2026 07:47:48 GMT"
+   },
+   {
+    "title": "HAFNIA LIMITED: Ex dividend USD 0.5003 on the Oslo Stock Exchange today - Yahoo Finance Singapore",
+    "source": "Yahoo Finance Singapore",
+    "published": "Mon, 07 Sep 2026 05:39:00 GMT"
+   },
+   {
+    "title": "Warren Buffett has a stark message for stock market investors - thestreet.com",
+    "source": "thestreet.com",
+    "published": "Sun, 06 Sep 2026 20:17:00 GMT"
+   },
+   {
+    "title": "Stock Market Today: All You Need To Know Before Going Into Trade On Sept 7 - NDTV Profit",
+    "source": "NDTV Profit",
+    "published": "Mon, 07 Sep 2026 00:30:01 GMT"
+   },
+   {
+    "title": "Why Did BFLY Stock Surge More Than 23% Pre-Market Today? - Stocktwits",
+    "source": "Stocktwits",
+    "published": "Sun, 06 Sep 2026 18:56:17 GMT"
+   },
+   {
+    "title": "Here's How Long the Average S&P 500 Bull Market Lasts, According to History. Should Investors Be Nervous? - Yahoo Finance",
+    "source": "Yahoo Finance",
+    "published": "Mon, 07 Sep 2026 05:20:00 GMT"
+   },
+   {
+    "title": "Equity Buybacks: Shifting Buyer Base Drives Record-High Activity - Neuberger Berman",
+    "source": "Neuberger Berman",
+    "published": "Mon, 07 Sep 2026 06:36:36 GMT"
+   },
+   {
+    "title": "Big US university endowments outperform S&P 500 index - ft.com",
+    "source": "ft.com",
+    "published": "Mon, 07 Sep 2026 04:00:58 GMT"
+   },
+   {
+    "title": "Is SLB Stock Underperforming the S&P 500? - Barchart.com",
+    "source": "Barchart.com",
+    "published": "Mon, 07 Sep 2026 06:52:14 GMT"
+   },
+   {
+    "title": "Here's How Long the Average S&P 500 Bull Market Lasts, According to History. Should Investors Be Nervous? - fool.com",
+    "source": "fool.com",
+    "published": "Mon, 07 Sep 2026 05:48:54 GMT"
+   },
+   {
+    "title": "The Index-Fund Strategy Quietly Beating Big Tech This Year - WSJ",
+    "source": "WSJ",
+    "published": "Mon, 07 Sep 2026 06:13:10 GMT"
+   },
+   {
+    "title": "SPX: S&P 500 Braces for Inflation Double Act After Jobs Surprise Revives Fed-Hike Bets - TradingView",
+    "source": "TradingView",
+    "published": "Mon, 07 Sep 2026 06:30:00 GMT"
+   },
+   {
+    "title": "S&P 500 Index(.SPX) Stock Price Today | Quotes & News - Moomoo",
+    "source": "Moomoo",
+    "published": "Mon, 07 Sep 2026 02:56:27 GMT"
+   },
+   {
+    "title": "Week Ahead for FX, Bonds: U.S. Inflation Data in Focus; ECB Expected to Raise Rates - WSJ",
+    "source": "WSJ",
+    "published": "Mon, 07 Sep 2026 01:59:27 GMT"
+   },
+   {
+    "title": "Fed holds interest rates steady as inflation hits 3-year high - ABC News - Breaking News, Latest News and Videos",
+    "source": "ABC News - Breaking News, Latest News and Videos",
+    "published": "Sun, 06 Sep 2026 10:31:54 GMT"
+   },
+   {
+    "title": "Trump turns up the heat on Warsh as Fed rate hike looms - CNBC",
+    "source": "CNBC",
+    "published": "Sat, 05 Sep 2026 18:10:58 GMT"
+   },
+   {
+    "title": "Upcoming inflation data could determine if the Federal Reserve hikes interest rates soon, leaving Wall Street on edge - Fortune",
+    "source": "Fortune",
+    "published": "Sun, 06 Sep 2026 15:03:00 GMT"
+   },
+   {
+    "title": "US Fed enters quiet period with rate increase on table - thenationalnews.com",
+    "source": "thenationalnews.com",
+    "published": "Sun, 06 Sep 2026 16:09:59 GMT"
+   },
+   {
+    "title": "UBS Adjusts Federal Reserve Rate Forecast After Impressive Job Growth - Devdiscourse",
+    "source": "Devdiscourse",
+    "published": "Mon, 07 Sep 2026 07:53:40 GMT"
+   },
+   {
+    "title": "Interest Rate Predictions for the Next 2 Years: 2026-2028 - Norada Real Estate Investments",
+    "source": "Norada Real Estate Investments",
+    "published": "Sun, 06 Sep 2026 17:58:24 GMT"
+   },
+   {
+    "title": "Trump threatens trade cutoffs if Fed doesn\u2019t lower interest rates - Scripps News",
+    "source": "Scripps News",
+    "published": "Sat, 05 Sep 2026 13:50:12 GMT"
+   },
+   {
+    "title": "Even Supreme Leader Mojtaba Khamenei is worried about Iran\u2019s economy and 'social cohesion' - Fortune",
+    "source": "Fortune",
+    "published": "Sun, 06 Sep 2026 17:37:00 GMT"
+   },
+   {
+    "title": "Will US inflation data persuade the Fed to raise rates this month? - ft.com",
+    "source": "ft.com",
+    "published": "Sun, 06 Sep 2026 11:00:02 GMT"
+   },
+   {
+    "title": "Trump keeps heralding an economic boom, but even a solid jobs report is causing problems for him - Bozeman Daily Chronicle",
+    "source": "Bozeman Daily Chronicle",
+    "published": "Sat, 05 Sep 2026 14:11:18 GMT"
+   },
+   {
+    "title": "Iran President Pezeshkian calls for unity as US ramps up economic pressure - Al Jazeera",
+    "source": "Al Jazeera",
+    "published": "Sat, 05 Sep 2026 13:12:43 GMT"
+   },
+   {
+    "title": "Wall Street Week Ahead: US inflation data and Oracle earnings in focus - IndiaIPO",
+    "source": "IndiaIPO",
+    "published": "Sun, 06 Sep 2026 23:16:37 GMT"
+   },
+   {
+    "title": "The Week Ahead: Umno general assembly, US inflation, Japan 2Q GDP in focus - The Edge Malaysia",
+    "source": "The Edge Malaysia",
+    "published": "Mon, 07 Sep 2026 01:39:58 GMT"
+   },
+   {
+    "title": "Trump wants rate cuts to unleash 15% growth, but economists warn cash influx could worsen inflation | Explained - Livemint",
+    "source": "Livemint",
+    "published": "Sat, 05 Sep 2026 16:08:26 GMT"
+   }
+  ],
+  "movers": [
+   {
+    "ticker": "SNDK",
+    "name": "Sandisk",
+    "close": 1740.0,
+    "pct_1d": 11.9,
+    "pct_5d": 17.17,
+    "headlines": [
+     {
+      "title": "How to Buy SanDisk (SNDK) Stock in Canada - Moomoo",
+      "source": "Moomoo",
+      "published": "Mon, 07 Sep 2026 06:56:58 GMT"
+     },
+     {
+      "title": "Prediction: This Is What Sandisk Stock Will Be Worth in 12 Months - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Sun, 06 Sep 2026 15:01:01 GMT"
+     },
+     {
+      "title": "Dow Jones Futures Fall With Iran, Apple, Inflation In Focus; Nvidia, Micron, Sandisk Flash Buy Signals - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "published": "Mon, 07 Sep 2026 03:14:00 GMT"
+     },
+     {
+      "title": "Sandisk (SNDK) Stock Looks Above Fair Value Despite Strong Earnings - simplywall.st",
+      "source": "simplywall.st",
+      "published": "Sun, 06 Sep 2026 22:26:15 GMT"
+     },
+     {
+      "title": "SNDK Stock Is Sliding After-Hours \u2014 Why Wall Street Is Getting More Bullish On Sandisk Despite The Selloff - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 19:05:35 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "KLAC",
+    "name": "KLA Corporation",
+    "close": 185.6,
+    "pct_1d": 7.32,
+    "pct_5d": 5.73,
+    "headlines": [
+     {
+      "title": "KLA Corporation Stock Surge 7% As Semiconductor Equipment Sector Rallies - TIKR.com",
+      "source": "TIKR.com",
+      "published": "Sat, 05 Sep 2026 12:58:53 GMT"
+     },
+     {
+      "title": "Free cash flow per share of KLA Corporation Cert Deposito Arg Repr 0.029411 Sh \u2013 BCBA:KLACC - TradingView",
+      "source": "TradingView",
+      "published": "Sun, 06 Sep 2026 16:35:20 GMT"
+     },
+     {
+      "title": "Two Chip-Equipment Stocks Just Crushed Nvidia. Is the AI Rally Broadening? - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Sat, 05 Sep 2026 18:43:32 GMT"
+     },
+     {
+      "title": "KLA Corporation stock gains on strong fiscal results and AI demand - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 07:34:19 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "MRVL",
+    "name": "Marvell Technology",
+    "close": 223.55,
+    "pct_1d": 7.05,
+    "pct_5d": 3.2,
+    "headlines": [
+     {
+      "title": "Marvell Stock Forecast: Q1 Revenue Jumps 28%, but Is the Trillion-Dollar Thesis Real? - TradingKey",
+      "source": "TradingKey",
+      "published": "Sun, 06 Sep 2026 17:06:02 GMT"
+     },
+     {
+      "title": "Marvell Stock Is Up 186% in Six Months and Joined the S&P 500 in June. It\u2019s Down 29% Since. - TIKR.com",
+      "source": "TIKR.com",
+      "published": "Sun, 06 Sep 2026 18:52:48 GMT"
+     },
+     {
+      "title": "Marvell Technology (MRVL) Stock Sits Below Fair Value While Earnings Look Above It - simplywall.st",
+      "source": "simplywall.st",
+      "published": "Sat, 05 Sep 2026 09:41:04 GMT"
+     },
+     {
+      "title": "POET Stock Rally Not Over Yet? Retail Traders Turn Ecstatic After CFO Signals Big Order Roadmap - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 16:40:46 GMT"
+     },
+     {
+      "title": "Marvell Technology stock gains on AI momentum and strong guidance - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 16:16:36 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "COHR",
+    "name": "Coherent Corp.",
+    "close": 281.86,
+    "pct_1d": 6.6,
+    "pct_5d": 0.95,
+    "headlines": [
+     {
+      "title": "Lumentum's Upbeat Report Sparks Photonics Rally: Coherent's Earnings Up Next - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 16:51:17 GMT"
+     },
+     {
+      "title": "Industrial Stocks To Consider - September 6th - MarketBeat",
+      "source": "MarketBeat",
+      "published": "Sun, 06 Sep 2026 18:03:29 GMT"
+     },
+     {
+      "title": "Corning, Seagate, Synopsys, Fiverr & Coherent Insider Shake-Up - TipRanks",
+      "source": "TipRanks",
+      "published": "Sat, 05 Sep 2026 13:51:58 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "NRG",
+    "name": "NRG Energy",
+    "close": 119.02,
+    "pct_1d": 6.42,
+    "pct_5d": 7.11,
+    "headlines": [
+     {
+      "title": "NRG Energy stock slips after a profit miss - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 12:19:15 GMT"
+     },
+     {
+      "title": "Wells Fargo Keeps Their Hold Rating on CMS Energy (CMS) - The Globe and Mail",
+      "source": "The Globe and Mail",
+      "published": "Sat, 05 Sep 2026 09:56:00 GMT"
+     },
+     {
+      "title": "These S&P 500 Utilities stocks trade below their 200-day average (XLU:NYSEARCA) - Seeking Alpha",
+      "source": "Seeking Alpha",
+      "published": "Mon, 07 Sep 2026 04:57:16 GMT"
+     },
+     {
+      "title": "SMCI Stock Is at a Crossroads. The Next Move Could Be Huge - 24/7 Wall St.",
+      "source": "24/7 Wall St.",
+      "published": "Sun, 06 Sep 2026 12:30:00 GMT"
+     },
+     {
+      "title": "EIX Looks 21.1% Undervalued on GF Value\u2122 Despite Utility Sector Headwinds - GuruFocus",
+      "source": "GuruFocus",
+      "published": "Mon, 07 Sep 2026 06:23:44 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "STX",
+    "name": "Seagate Technology",
+    "close": 849.28,
+    "pct_1d": 6.34,
+    "pct_5d": 2.35,
+    "headlines": [
+     {
+      "title": "STX Stock Gains Over 6% \u2014 Company Settles Huawei Lawsuit For $175M - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sat, 05 Sep 2026 19:20:57 GMT"
+     },
+     {
+      "title": "SanDisk vs. Seagate Stock Comparison: Which Storage Stock Is Better for Long-Term Holding, SNDK or STX? - TradingKey",
+      "source": "TradingKey",
+      "published": "Sun, 06 Sep 2026 04:04:39 GMT"
+     },
+     {
+      "title": "Seagate stock gains as strong fiscal 2026 results boost outlook - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 15:38:04 GMT"
+     },
+     {
+      "title": "Five Best-Performing Stocks of 2026 So Far - stl.news",
+      "source": "stl.news",
+      "published": "Sat, 05 Sep 2026 11:33:52 GMT"
+     },
+     {
+      "title": "These 2 AI Storage Stocks Soared as the S&P 500 Fell - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Sat, 05 Sep 2026 19:00:28 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "MU",
+    "name": "Micron Technology",
+    "close": 1016.59,
+    "pct_1d": 6.1,
+    "pct_5d": 8.98,
+    "headlines": [
+     {
+      "title": "Prediction: Micron Stock Will Skyrocket After Sept. 30 - fool.com",
+      "source": "fool.com",
+      "published": "Sun, 06 Sep 2026 14:12:00 GMT"
+     },
+     {
+      "title": "MU: Micron Technology Inc Latest Stock Price, Analysis, News and Trading Ideas - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 03:52:11 GMT"
+     },
+     {
+      "title": "Is Micron the Next Nvidia? Why the 2026 \"Memory Crunch\" Makes MU Stock a Top AI Buy - TradingKey",
+      "source": "TradingKey",
+      "published": "Sun, 06 Sep 2026 18:54:19 GMT"
+     },
+     {
+      "title": "Micron Stock More Than Tripled in 2026. Now Taiwan Strike Threat Could Shake the AI Boom. - Barchart.com",
+      "source": "Barchart.com",
+      "published": "Sun, 06 Sep 2026 13:00:02 GMT"
+     },
+     {
+      "title": "Micron Technology stock heads into the open after a 6.0% jump - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Mon, 07 Sep 2026 05:15:05 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "WDC",
+    "name": "Western Digital",
+    "close": 467.46,
+    "pct_1d": 5.86,
+    "pct_5d": 1.74,
+    "headlines": [
+     {
+      "title": "Why WDC, MU, STX, SNDK Stocks Rallied Hard Today And Lifted DRAM To \u2018Solid Breakout\u2019 - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 17:04:55 GMT"
+     },
+     {
+      "title": "Western Digital (WDC) Stock Forum and Discussion - Moomoo",
+      "source": "Moomoo",
+      "published": "Sun, 06 Sep 2026 08:44:31 GMT"
+     },
+     {
+      "title": "These 2 AI Storage Stocks Soared as the S&P 500 Fell - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Sat, 05 Sep 2026 19:00:28 GMT"
+     },
+     {
+      "title": "Western Digital stock gains on AI storage optimism despite recent volatility - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 11:14:59 GMT"
+     },
+     {
+      "title": "SNDK, WDC Stocks Topple As Blowout Memory Earnings Don\u2019t Surprise Enough \u2014 Retail Pounces On The Dip - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 00:50:18 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "GLW",
+    "name": "Corning Inc.",
+    "close": 154.3,
+    "pct_1d": 5.68,
+    "pct_5d": 3.77,
+    "headlines": [
+     {
+      "title": "Why Is GLW Stock Falling Today? - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 14:07:10 GMT"
+     },
+     {
+      "title": "GLW: Corning, Inc. Latest Stock Price, Analysis, News and Trading Ideas - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sat, 05 Sep 2026 21:08:16 GMT"
+     },
+     {
+      "title": "Corning Inc. stock gains on recent rally and AI positioning - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 08:00:23 GMT"
+     },
+     {
+      "title": "Owens Corning Inc (NYSE:OC) Given Consensus Recommendation of \"Moderate Buy\" by Brokerages - MarketBeat",
+      "source": "MarketBeat",
+      "published": "Sat, 05 Sep 2026 08:47:57 GMT"
+     },
+     {
+      "title": "Spider-Man Helps AMC Smash Its 106-Year Revenue Record \u2014 Beating 'Avengers: Endgame' - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 18:36:43 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "TER",
+    "name": "Teradyne",
+    "close": 357.03,
+    "pct_1d": 5.49,
+    "pct_5d": 0.62,
+    "headlines": [
+     {
+      "title": "Is Teradyne (TER) Undervalued As New AI Test Instruments Target Data Center Demand? - simplywall.st",
+      "source": "simplywall.st",
+      "published": "Sun, 06 Sep 2026 10:23:54 GMT"
+     },
+     {
+      "title": "AMD, TER Stocks Jump After Goldman Sachs Lifts Price Targets - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 00:14:37 GMT"
+     },
+     {
+      "title": "Teradyne Inc. stock gains on strong robotics demand and AI test boom - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 19:29:14 GMT"
+     },
+     {
+      "title": "Analysts Offer Insights on Industrial Goods Companies: Equifax (EFX) and RXO, Inc. (RXO) - The Globe and Mail",
+      "source": "The Globe and Mail",
+      "published": "Sat, 05 Sep 2026 12:38:00 GMT"
+     },
+     {
+      "title": "FUBO Stock Heads For Best Week In A Month: Retail Eyes Further Upside On FIFA World Cup Excitement - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 17:10:16 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "LRCX",
+    "name": "Lam Research",
+    "close": 307.65,
+    "pct_1d": 5.12,
+    "pct_5d": 1.9,
+    "headlines": [
+     {
+      "title": "Amundi Sells 721,326 Shares of Lam Research Corporation $LRCX - MarketBeat",
+      "source": "MarketBeat",
+      "published": "Mon, 07 Sep 2026 07:49:12 GMT"
+     },
+     {
+      "title": "Lam Research stock heads into the open after a 5.1 percent jump - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Mon, 07 Sep 2026 06:01:13 GMT"
+     },
+     {
+      "title": "Lam Research Corporation $LRCX Shares Sold by Greenland Capital Management LP - MarketBeat",
+      "source": "MarketBeat",
+      "published": "Mon, 07 Sep 2026 08:03:20 GMT"
+     },
+     {
+      "title": "Two Chip-Equipment Stocks Just Crushed Nvidia. Is the AI Rally Broadening? - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Sat, 05 Sep 2026 18:43:32 GMT"
+     },
+     {
+      "title": "California State Teachers Retirement System Grows Holdings in Lam Research Corporation $LRCX - MarketBeat",
+      "source": "MarketBeat",
+      "published": "Mon, 07 Sep 2026 08:03:19 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "CEG",
+    "name": "Constellation Energy",
+    "close": 298.96,
+    "pct_1d": 4.88,
+    "pct_5d": 8.03,
+    "headlines": [
+     {
+      "title": "Nuclear Stock Face-Off: Is Constellation Energy or Vistra the Better Buy Right Now? - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Mon, 07 Sep 2026 02:22:00 GMT"
+     },
+     {
+      "title": "Nuclear Stock Face-Off: Is Constellation Energy or Vistra the Better Buy Right Now? - fool.com",
+      "source": "fool.com",
+      "published": "Mon, 07 Sep 2026 03:02:00 GMT"
+     },
+     {
+      "title": "CEG Stock Takes A Hit After Citi's Price-Target Cut \u2014 But Retail Is Already Diving In To Buy The Dip - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 05:33:07 GMT"
+     },
+     {
+      "title": "Is Constellation Energy (CEG) Undervalued After Its Brazos Sale And Calpine Progress? - simplywall.st",
+      "source": "simplywall.st",
+      "published": "Sun, 06 Sep 2026 00:34:51 GMT"
+     },
+     {
+      "title": "Constellation Energy stock gains as valuation debate intensifies - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 12:25:34 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "LULU",
+    "name": "Lululemon Athletica",
+    "close": 100.61,
+    "pct_1d": -17.38,
+    "pct_5d": -16.72,
+    "headlines": [
+     {
+      "title": "Lululemon Fell 18% After Earnings. Here\u2019s How Much the Stock Could Rise in 2026 - TIKR.com",
+      "source": "TIKR.com",
+      "published": "Mon, 07 Sep 2026 07:42:01 GMT"
+     },
+     {
+      "title": "I Predicted That Lululemon Stock Was In Trouble Ahead of Earnings. What's Next After Its 17% Drop? - Currently.com",
+      "source": "Currently.com",
+      "published": "Sun, 06 Sep 2026 22:20:00 GMT"
+     },
+     {
+      "title": "LULU Stock Sinks 18% Overnight: Michael Burry Says Lululemon Is A \u2018Trickster\u2019 As He Vows To Buy More Under $100 - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 22:10:31 GMT"
+     },
+     {
+      "title": "Lululemon Athletica (LULU) Could Be 38% Undervalued After Guidance Cut - simplywall.st",
+      "source": "simplywall.st",
+      "published": "Sun, 06 Sep 2026 04:28:46 GMT"
+     },
+     {
+      "title": "Why Trade Desk, AppLovin and Lululemon Are Lagging - Benzinga",
+      "source": "Benzinga",
+      "published": "Sun, 06 Sep 2026 20:43:13 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "FICO",
+    "name": "Fair Isaac",
+    "close": 932.26,
+    "pct_1d": -16.68,
+    "pct_5d": -19.18,
+    "headlines": [
+     {
+      "title": "One Regulator Just Ended Fair Isaac\u2019s (FICO) Mortgage Monopoly. The Stock Fell 16% \u2013 Is It Justified? - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Mon, 07 Sep 2026 03:57:00 GMT"
+     },
+     {
+      "title": "Fair Isaac Stock Drops 17% After Federal Regulator Vows to End Credit Bureau Overcharging - TIKR.com",
+      "source": "TIKR.com",
+      "published": "Sat, 05 Sep 2026 12:58:53 GMT"
+     },
+     {
+      "title": "Fair Isaac (FICO) Is Down 19.2% After Losing GSE FICO Exclusivity To VantageScore 4.0 - simplywall.st",
+      "source": "simplywall.st",
+      "published": "Sun, 06 Sep 2026 10:30:11 GMT"
+     },
+     {
+      "title": "With EPS Growth And More, Fair Isaac (NYSE:FICO) Makes An Interesting Case - Moomoo",
+      "source": "Moomoo",
+      "published": "Sun, 06 Sep 2026 14:08:24 GMT"
+     },
+     {
+      "title": "Fair Isaac (FICO) Stock Dropped, So What Is Behind The Latest Attention? - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Sat, 05 Sep 2026 10:11:21 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "ADSK",
+    "name": "Autodesk",
+    "close": 217.9,
+    "pct_1d": -8.26,
+    "pct_5d": -16.4,
+    "headlines": [
+     {
+      "title": "Autodesk Stock Fell 8% on Friday. Its Forward Multiple Is Near a Two-Year Low. - TIKR.com",
+      "source": "TIKR.com",
+      "published": "Sat, 05 Sep 2026 13:51:09 GMT"
+     },
+     {
+      "title": "Autodesk stock falls 8.3 percent after strong quarter - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 16:15:03 GMT"
+     },
+     {
+      "title": "Mastercard Stock Is Up 20% in Three Months. The Earnings Beat Explains Why. - TIKR.com",
+      "source": "TIKR.com",
+      "published": "Sun, 06 Sep 2026 10:03:28 GMT"
+     },
+     {
+      "title": "SanDisk Stock Jumped 12% on Friday. The AI Memory Trade Just Got Louder. - TIKR.com",
+      "source": "TIKR.com",
+      "published": "Sat, 05 Sep 2026 16:22:24 GMT"
+     },
+     {
+      "title": "Is CRWD Stock The Safe Haven In AI-Driven Software Selloff? Wall Street Eyes Big Upside - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 10:44:26 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "ADBE",
+    "name": "Adobe Inc.",
+    "close": 266.51,
+    "pct_1d": -6.73,
+    "pct_5d": -8.58,
+    "headlines": [
+     {
+      "title": "ADBE Stock Quote Price and Forecast - CNN",
+      "source": "CNN",
+      "published": "Sun, 06 Sep 2026 01:58:19 GMT"
+     },
+     {
+      "title": "Why Is ADBE Stock Falling After Easy Q2 Beat? An Analyst Caught Something On The Earnings Call - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 00:37:56 GMT"
+     },
+     {
+      "title": "Adobe Inc. stock faces leadership shift as earnings and analyst views diverge - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 17:13:05 GMT"
+     },
+     {
+      "title": "Adobe Stock Drops After-Hours As CFO Exit Eclipses Strong Q2 Results, FY26 Guidance - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sat, 05 Sep 2026 16:07:15 GMT"
+     },
+     {
+      "title": "Adobe\u2019s New CEO Takes Over in December. Is the Open CFO Search the Bigger Risk? - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Sun, 06 Sep 2026 00:17:00 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "EFX",
+    "name": "Equifax",
+    "close": 177.05,
+    "pct_1d": -6.37,
+    "pct_5d": -8.64,
+    "headlines": [
+     {
+      "title": "Equifax (EFX) Faces Complaint Portal Focus, Is It A Bargain? - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Sat, 05 Sep 2026 12:13:47 GMT"
+     },
+     {
+      "title": "Equifax Inc. stock holds steady as investors watch credit data trends - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 14:43:18 GMT"
+     },
+     {
+      "title": "Analysts Offer Insights on Industrial Goods Companies: Equifax (EFX) and RXO, Inc. (RXO) - The Globe and Mail",
+      "source": "The Globe and Mail",
+      "published": "Sat, 05 Sep 2026 12:38:00 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "PTC",
+    "name": "PTC Inc.",
+    "close": 141.02,
+    "pct_1d": -6.04,
+    "pct_5d": -10.26,
+    "headlines": [
+     {
+      "title": "PTC Stock Sinks As Growth Story Shows Cracks - TipRanks",
+      "source": "TipRanks",
+      "published": "Sun, 06 Sep 2026 22:09:21 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "TSLA",
+    "name": "Tesla, Inc.",
+    "close": 354.08,
+    "pct_1d": -5.92,
+    "pct_5d": 1.53,
+    "headlines": [
+     {
+      "title": "Tesla Futures Margins - cmegroup.com",
+      "source": "cmegroup.com",
+      "published": "Mon, 07 Sep 2026 00:09:08 GMT"
+     },
+     {
+      "title": "Tesla Stock Slips Premarket As EV Headwinds Mount \u2014 But One Wall Street Firm Sees Over 30% Upside On A \u2018Physical AI\u2019 Future - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 16:26:44 GMT"
+     },
+     {
+      "title": "Tesla, Inc. Common Stock (TSLA) Historical Quotes - nasdaq.com",
+      "source": "nasdaq.com",
+      "published": "Sun, 06 Sep 2026 03:48:19 GMT"
+     },
+     {
+      "title": "Tesla stock heads into the open after a 5.9 percent drop - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Mon, 07 Sep 2026 05:49:20 GMT"
+     },
+     {
+      "title": "Maxi Investments CY Ltd Takes Position in Tesla, Inc. $TSLA - MarketBeat",
+      "source": "MarketBeat",
+      "published": "Sun, 06 Sep 2026 09:18:43 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "SNPS",
+    "name": "Synopsys",
+    "close": 393.84,
+    "pct_1d": -5.4,
+    "pct_5d": -11.02,
+    "headlines": [
+     {
+      "title": "What Could Get Synopsys Stock Grinding Higher Again? - Trefis",
+      "source": "Trefis",
+      "published": "Sun, 06 Sep 2026 21:08:56 GMT"
+     },
+     {
+      "title": "How to Play SNPS Stock as Layoffs Hit Synopsys - Barchart.com",
+      "source": "Barchart.com",
+      "published": "Sun, 06 Sep 2026 19:30:02 GMT"
+     },
+     {
+      "title": "Amundi Sells 13,682 Shares of Synopsys, Inc. $SNPS - MarketBeat",
+      "source": "MarketBeat",
+      "published": "Mon, 07 Sep 2026 07:19:04 GMT"
+     },
+     {
+      "title": "ATOM Stock Soars Toward Record Month: Synopsys Collaboration Fuels Retail Hype - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 00:13:15 GMT"
+     },
+     {
+      "title": "Can Cadence's Cash Generation Support Both Growth and Share Buybacks? - qz.com",
+      "source": "qz.com",
+      "published": "Sat, 05 Sep 2026 10:07:16 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "WDAY",
+    "name": "Workday, Inc.",
+    "close": 195.79,
+    "pct_1d": -5.38,
+    "pct_5d": -4.36,
+    "headlines": [
+     {
+      "title": "Workday (WDAY)\u2019s AI Push is Easing Investor Fears, but its Own Guidance Tells a More Cautious Story - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "published": "Sun, 06 Sep 2026 23:11:29 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "NFLX",
+    "name": "Netflix",
+    "close": 78.25,
+    "pct_1d": -5.35,
+    "pct_5d": -4.25,
+    "headlines": [
+     {
+      "title": "Netflix Stock Is Down 40%. Is It a Buy? - fool.com",
+      "source": "fool.com",
+      "published": "Sun, 06 Sep 2026 15:30:00 GMT"
+     },
+     {
+      "title": "Amundi Has $1.82 Billion Holdings in Netflix, Inc. $NFLX - MarketBeat",
+      "source": "MarketBeat",
+      "published": "Mon, 07 Sep 2026 07:17:12 GMT"
+     },
+     {
+      "title": "NFLX Stock Tumbles Overnight After Guidance Dismay \u2013 CFO Says Global Growth Story Is Far From Over - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 11:08:21 GMT"
+     },
+     {
+      "title": "Warner Bros Discovery Chose Paramount Over Netflix. Here\u2019s What That Cost Netflix Stock. - TIKR.com",
+      "source": "TIKR.com",
+      "published": "Sun, 06 Sep 2026 10:03:28 GMT"
+     },
+     {
+      "title": "Netflix (NFLX) Hits a 52-Week Low \u2014 Why 37 Analysts Still See 56% Upside - TradingKey",
+      "source": "TradingKey",
+      "published": "Sat, 05 Sep 2026 18:07:27 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "DASH",
+    "name": "DoorDash",
+    "close": 211.73,
+    "pct_1d": -4.63,
+    "pct_5d": -10.56,
+    "headlines": [
+     {
+      "title": "DoorDash Stock Is Rallying 10% - Why Are Traders Bullish Despite Downbeat Earnings? - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sat, 05 Sep 2026 20:51:05 GMT"
+     },
+     {
+      "title": "Why Walmart is moving in on DoorDash, Uber Eats delivery action, starting with donuts, coffee and sandwiches - CNBC",
+      "source": "CNBC",
+      "published": "Sat, 05 Sep 2026 14:46:14 GMT"
+     },
+     {
+      "title": "CART Vs DASH: One Food Delivery Stock Has 70% Upside \u2013 Here\u2019s What Analysts Are Saying - Stocktwits",
+      "source": "Stocktwits",
+      "published": "Sun, 06 Sep 2026 15:41:30 GMT"
+     },
+     {
+      "title": "DoorDash (DASH) Q1 2026 Earnings Call Transcript - Fortune",
+      "source": "Fortune",
+      "published": "Sun, 06 Sep 2026 10:53:41 GMT"
+     },
+     {
+      "title": "Grab: The Growth Story Is Just Beginning (NASDAQ:GRAB) - Seeking Alpha",
+      "source": "Seeking Alpha",
+      "published": "Sun, 06 Sep 2026 10:54:36 GMT"
+     }
+    ]
+   },
+   {
+    "ticker": "IT",
+    "name": "Gartner",
+    "close": 186.42,
+    "pct_1d": -4.62,
+    "pct_5d": -6.03,
+    "headlines": [
+     {
+      "title": "Is Gartner\u2019s (IT) Profitability Boost Masking a Deeper Challenge in Enterprise AI Adoption? - simplywall.st",
+      "source": "simplywall.st",
+      "published": "Sat, 05 Sep 2026 16:31:49 GMT"
+     },
+     {
+      "title": "Bronstein, Gewirtz & Grossman, LLC Is Investigating Gartner, Inc. (IT) And Encourages Stockholders to Connect - Stockhouse",
+      "source": "Stockhouse",
+      "published": "Sun, 06 Sep 2026 17:00:00 GMT"
+     },
+     {
+      "title": "Gartner Inc. stock edges lower as investors digest strong Q2 2026 figures - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "published": "Sun, 06 Sep 2026 09:56:53 GMT"
+     },
+     {
+      "title": "Consumption-based martech is bringing surprise AI bills to CMO budgets - MarketScale",
+      "source": "MarketScale",
+      "published": "Sat, 05 Sep 2026 18:07:24 GMT"
+     },
+     {
+      "title": "Coveo Named a 2026 Gartner Leader as AI Search Momentum Builds \u2014 Why CVO Is Back in Focus - kalkine.ca",
+      "source": "kalkine.ca",
+      "published": "Mon, 07 Sep 2026 07:32:00 GMT"
+     }
+    ]
+   }
+  ],
+  "etfs": [
+   {
+    "ticker": "SPY",
+    "name": "SPDR S&P 500",
+    "theme": "whole US market",
+    "close": 770.19,
+    "pct_1d": -0.39,
+    "pct_5d": 0.11
+   },
+   {
+    "ticker": "QQQ",
+    "name": "Invesco QQQ",
+    "theme": "big tech",
+    "close": 718.96,
+    "pct_1d": 0.18,
+    "pct_5d": 0.35
+   },
+   {
+    "ticker": "IWM",
+    "name": "iShares Russell 2000",
+    "theme": "small companies",
+    "close": 296.01,
+    "pct_1d": 0.28,
+    "pct_5d": 0.09
+   },
+   {
+    "ticker": "SMH",
+    "name": "VanEck Semiconductor",
+    "theme": "chip makers",
+    "close": 567.01,
+    "pct_1d": 2.61,
+    "pct_5d": 2.51
+   },
+   {
+    "ticker": "XLK",
+    "name": "Technology Select SPDR",
+    "theme": "technology",
+    "close": 187.28,
+    "pct_1d": 0.7,
+    "pct_5d": 0.86
+   },
+   {
+    "ticker": "XLE",
+    "name": "Energy Select SPDR",
+    "theme": "oil & energy",
+    "close": 64.06,
+    "pct_1d": -0.87,
+    "pct_5d": 2.2
+   },
+   {
+    "ticker": "XLF",
+    "name": "Financial Select SPDR",
+    "theme": "banks & finance",
+    "close": 58.1,
+    "pct_1d": -0.79,
+    "pct_5d": 0.0
+   },
+   {
+    "ticker": "XLV",
+    "name": "Health Care Select SPDR",
+    "theme": "healthcare",
+    "close": 171.45,
+    "pct_1d": -1.04,
+    "pct_5d": 0.17
+   },
+   {
+    "ticker": "XLI",
+    "name": "Industrial Select SPDR",
+    "theme": "industrials",
+    "close": 175.27,
+    "pct_1d": 0.41,
+    "pct_5d": -1.06
+   },
+   {
+    "ticker": "XLP",
+    "name": "Consumer Staples SPDR",
+    "theme": "everyday goods",
+    "close": 84.58,
+    "pct_1d": -0.8,
+    "pct_5d": -1.02
+   },
+   {
+    "ticker": "XLY",
+    "name": "Consumer Discretionary SPDR",
+    "theme": "shopping & leisure",
+    "close": 114.91,
+    "pct_1d": -1.33,
+    "pct_5d": -1.96
+   },
+   {
+    "ticker": "XLU",
+    "name": "Utilities Select SPDR",
+    "theme": "utilities",
+    "close": 43.08,
+    "pct_1d": 0.12,
+    "pct_5d": 0.82
+   },
+   {
+    "ticker": "GLD",
+    "name": "SPDR Gold Shares",
+    "theme": "gold",
+    "close": 406.77,
+    "pct_1d": -0.84,
+    "pct_5d": -0.52
+   },
+   {
+    "ticker": "TLT",
+    "name": "iShares 20+ Year Treasury",
+    "theme": "US government bonds",
+    "close": 82.21,
+    "pct_1d": 0.17,
+    "pct_5d": -0.43
+   }
+  ],
+  "track_record": "Past picks graded at current prices: 20 total, avg return +0.00%, avg alpha vs index +0.00%, beat-the-index 0/20.\nBy signal type (n, avg return, avg alpha, beat-index):\n- catalyst: n=3, ret +0.00%, alpha +0.00%, beat 0/3\n- dip_buy: n=2, ret +0.00%, alpha +0.00%, beat 0/2\n- etf: n=3, ret +0.00%, alpha +0.00%, beat 0/3\n- momentum: n=6, ret +0.00%, alpha +0.00%, beat 0/6\n- relative_strength: n=1, ret +0.00%, alpha +0.00%, beat 0/1\n- untagged: n=5, ret +0.00%, alpha +0.00%, beat 0/5\nBy conviction:\n- conviction 2: n=2, ret +0.00%, alpha +0.00%, beat 0/2\n- conviction 3: n=7, ret +0.00%, alpha +0.00%, beat 0/7\n- conviction 4: n=8, ret +0.00%, alpha +0.00%, beat 0/8\n- conviction 5: n=3, ret +0.00%, alpha +0.00%, beat 0/3\nMost recent picks (up to 15):\n- 2026-09-07 MU (momentum, conviction 5): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 SNDK (momentum, conviction 5): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 KLAC (momentum, conviction 4): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 LRCX (relative_strength, conviction 4): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 STX (catalyst, conviction 4): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 MRVL (momentum, conviction 3): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 TER (catalyst, conviction 3): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 COHR (momentum, conviction 3): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 CEG (catalyst, conviction 3): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 NFLX (dip_buy, conviction 2): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 SMH (etf, conviction 4): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 XLU (etf, conviction 3): +0.00% in 0d, alpha +0.00%\n- 2026-09-07 XLE (etf, conviction 2): +0.00% in 0d, alpha +0.00%\n- 2026-09-06 MU (untagged, conviction 5): +0.00% in 1d, alpha +0.00%\n- 2026-09-06 KLAC (untagged, conviction 4): +0.00% in 1d, alpha +0.00%"
+ },
+ "analysis": {
+  "market_summary": "The index slipped modestly (S&P 500 -0.38%) as investors digested a strong jobs report that revived Fed rate-hike bets and awaited fresh inflation data, but the tape was anything but uniform: a broad memory/chip-equipment rally (SNDK, MU, KLAC, STX, WDC, LRCX, TER all up 5-12%) offset sharp single-stock breakdowns in software and consumer names (FICO, LULU, ADSK, ADBE, NFLX) tied to company-specific guidance cuts and regulatory shocks. Macro backdrop remains rate-hike-on-the-table with Fed in its quiet period, Trump pressuring the Fed publicly, and Iran/geopolitical risk lingering in the background.",
+  "market_summary_plain": "The overall market dipped slightly because a strong jobs report made investors think the Fed might raise interest rates soon, but under the surface, memory-chip and AI-hardware stocks jumped a lot while several software and retail stocks got hit hard by bad company-specific news.",
+  "picks": [
+   {
+    "ticker": "MU",
+    "name": "Micron Technology",
+    "conviction": 5,
+    "signal_type": "momentum",
+    "thesis": "Micron is up 6.1% on the day and nearly 9% over 5 days as the 'memory crunch' narrative accelerates, with IBD flagging a technical buy signal and bulls calling it 'the next Nvidia.' This is a repeat of an earlier same-day call in this tool's own log; that pick has no real track record yet (0 days elapsed), so treat the size of conviction as thesis-driven rather than proven.",
+    "plain_english": "This company makes memory chips that AI computers desperately need, and the stock just broke out to new highs on that demand story.",
+    "catalysts": "Sept 30 earnings date highlighted by bulls; continued DRAM price strength and AI server demand.",
+    "risks": "Barchart flags a Taiwan strike threat that could disrupt supply chains; stock has already tripled in 2026, raising valuation and profit-taking risk.",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "STX",
+    "name": "Seagate Technology",
+    "conviction": 4,
+    "signal_type": "catalyst",
+    "thesis": "Seagate jumped 6.3% after settling a Huawei lawsuit for $175M (removing a legal overhang) alongside strong fiscal 2026 results that beat expectations, with Yahoo Finance grouping it among 'AI storage stocks' that soared even as the S&P fell. This is a repeat name from the same-day pick list, still unproven given zero elapsed days.",
+    "plain_english": "This hard-drive maker just cleared a legal headache and posted strong results, and its stock is one of the storage names surging on AI data-center demand.",
+    "catalysts": "Continued AI storage demand, resolved legal risk freeing up capital.",
+    "risks": "Stock already up sharply in 5 days; any pullback in the broader storage/memory trade would hit it disproportionately.",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "KLAC",
+    "name": "KLA Corporation",
+    "conviction": 4,
+    "signal_type": "momentum",
+    "thesis": "KLA surged 7.3% as the chip-equipment sector rallied broadly, with Yahoo Finance noting KLA and peers 'crushed Nvidia' on the day, driven by strong fiscal results and AI demand commentary. Repeat name from the same-day list; not yet graded.",
+    "plain_english": "This company makes the precision equipment chipmakers use to build advanced chips, and demand tied to AI is lifting its results and stock.",
+    "catalysts": "AI-driven capital spending by chipmakers continuing into 2026.",
+    "risks": "Semi-equipment stocks can be volatile around capex cycle headlines; a slowdown in chipmaker spending plans would hurt sentiment.",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "LRCX",
+    "name": "Lam Research",
+    "conviction": 3,
+    "signal_type": "relative_strength",
+    "thesis": "Lam Research rose 5.1% alongside KLA in the chip-equipment rally, holding up as institutional selling (Amundi trimming shares) was more than offset by broader sector strength. Also a repeat same-day pick, currently ungraded.",
+    "plain_english": "Another maker of chip-manufacturing equipment that's riding the same AI-driven spending wave as KLA, even as some big funds trim their stakes.",
+    "catalysts": "Continued semiconductor equipment sector momentum; AI capex announcements from chipmakers.",
+    "risks": "Reports of institutional share sales (Amundi, Greenland Capital) could signal profit-taking by big holders.",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "TER",
+    "name": "Teradyne",
+    "conviction": 3,
+    "signal_type": "catalyst",
+    "thesis": "Teradyne gained 5.5% after Goldman Sachs lifted its price target, with commentary pointing to new AI test instruments targeting data-center demand and strong robotics demand. Repeat same-day pick, ungraded so far.",
+    "plain_english": "This company makes testing equipment for chips and robots, and Goldman Sachs just said its AI-related products make it worth more.",
+    "catalysts": "Further sell-side price target increases; continued AI/robotics test-equipment demand.",
+    "risks": "5-day move is more muted (+0.62%) than the 1-day pop, suggesting today's jump could be a single-day reaction that needs follow-through.",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "COHR",
+    "name": "Coherent Corp.",
+    "conviction": 3,
+    "signal_type": "momentum",
+    "thesis": "Coherent rose 6.6% as Lumentum's upbeat report sparked a photonics-sector rally ahead of Coherent's own earnings, positioning it as a beneficiary of the same optical/AI-networking theme. Repeat same-day pick, ungraded.",
+    "plain_english": "This company makes optical components used in AI data-center networking, and a strong report from a competitor (Lumentum) is lifting the whole group ahead of Coherent's own earnings.",
+    "catalysts": "Coherent's own upcoming earnings report could confirm the sector-wide optimism.",
+    "risks": "Move is largely sympathy-driven ahead of actual company results; earnings could disappoint relative to the hype.",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "WDC",
+    "name": "Western Digital",
+    "conviction": 3,
+    "signal_type": "momentum",
+    "thesis": "Western Digital jumped 5.9% as part of the broad DRAM/storage 'solid breakout' alongside MU, STX, and SNDK, with retail buyers reportedly stepping in even where blowout earnings 'didn't surprise enough.'",
+    "plain_english": "This storage-drive maker is part of the same AI-demand rally lifting Micron and Seagate, and traders are buying even minor earnings dips.",
+    "catalysts": "Continued AI storage/memory sector strength; further retail dip-buying.",
+    "risks": "Headline notes some 'topple' after blowout earnings underwhelmed slightly - a sign expectations are getting stretched.",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "CEG",
+    "name": "Constellation Energy",
+    "conviction": 3,
+    "signal_type": "dip_buy",
+    "thesis": "Constellation rose 4.9% even after a Citi price-target cut, with retail investors buying the dip and simplywall.st flagging undervaluation after the Brazos sale and Calpine progress \u2014 fitting the nuclear/AI power-demand theme also seen in NRG's move.",
+    "plain_english": "This nuclear power company is being bid up because AI data centers need huge amounts of electricity, and investors are buying even after an analyst trimmed their price target.",
+    "catalysts": "Continued AI/data-center power demand narrative; further clarity on Calpine integration.",
+    "risks": "Citi's price target cut signals some analyst skepticism on valuation after the recent run-up.",
+    "time_horizon": "2-6 weeks"
+   },
+   {
+    "ticker": "SNDK",
+    "name": "Sandisk",
+    "conviction": 3,
+    "signal_type": "momentum",
+    "thesis": "Sandisk led the storage complex with an 11.9% single-day pop and IBD flagged a technical buy signal, though simplywall.st warns shares look 'above fair value' and one headline notes after-hours weakness \u2014 a strong but stretched momentum name. Repeat same-day pick, ungraded.",
+    "plain_english": "This flash-memory maker had the biggest jump of the day on AI memory demand, but some analysts think the stock has already gotten ahead of itself.",
+    "catalysts": "Continued memory/DRAM sector strength and AI-related demand commentary.",
+    "risks": "Valuation flagged as stretched; after-hours softness suggests the rally could be fragile near-term.",
+    "time_horizon": "1-4 weeks"
+   },
+   {
+    "ticker": "NFLX",
+    "name": "Netflix",
+    "conviction": 2,
+    "signal_type": "dip_buy",
+    "thesis": "Netflix fell 5.4% to a 52-week low after guidance disappointment, but TradingKey notes 37 analysts still see 56% upside, and the CFO pushed back on the idea that global growth is over. Evidence is thin/mixed, warranting only a low-conviction speculative dip-buy. Repeat same-day pick, ungraded.",
+    "plain_english": "The video-streaming giant just hit a one-year low after weak guidance scared investors, but most Wall Street analysts still think it's undervalued at this price \u2014 a risky but potentially rewarded contrarian bet.",
+    "catalysts": "Any reassurance on subscriber/growth trends in coming weeks; analyst upgrades reiterating upside.",
+    "risks": "Losing content deals (Warner Bros Discovery chose Paramount over Netflix) suggests real competitive erosion, not just sentiment.",
+    "time_horizon": "4-8 weeks"
+   }
+  ],
+  "etf_picks": [
+   {
+    "ticker": "SMH",
+    "name": "VanEck Semiconductor ETF",
+    "conviction": 4,
+    "thesis": "SMH jumped 2.6% in a day where nearly every mover in the universe was a chip or chip-equipment name (MU, KLAC, LRCX, STX, WDC, SNDK, TER), confirming a broad, not just single-stock, AI hardware rally.",
+    "plain_english": "This fund owns a basket of chipmakers, and today almost every big winner in the market was a chip stock, so this is a simple way to ride that whole trend instead of picking one name.",
+    "risks": "Concentrated sector bet; a reversal in AI capex sentiment or a rate-hike-driven risk-off day would hit the whole basket at once."
+   },
+   {
+    "ticker": "XLU",
+    "name": "Utilities Select SPDR",
+    "conviction": 3,
+    "thesis": "Utilities are up 0.82% over 5 days and holding relatively steady even as headlines highlight sector stocks (CEG, NRG) trading below their 200-day average \u2014 suggesting a value/AI-power-demand story that hasn't fully played out yet in the fund's price.",
+    "plain_english": "This fund holds power companies, and with AI data centers needing huge amounts of electricity (as seen in Constellation and NRG's big gains), utilities could be a steadier way to play that same power-demand trend.",
+    "risks": "Rate-hike fears are generally bad for utilities (rate-sensitive, dividend-focused sector); a hawkish Fed surprise could cap gains."
+   },
+   {
+    "ticker": "QQQ",
+    "name": "Invesco QQQ (big tech)",
+    "conviction": 3,
+    "thesis": "QQQ eked out a 0.18% gain even as the broader S&P fell 0.38%, showing relative strength as chip-sector gains offset software-sector weakness (ADBE, WDAY, NFLX) within the same index.",
+    "plain_english": "This fund holds the biggest tech companies including the chipmakers that rallied today, so it offers a diversified way to catch the AI trade without betting on one stock or one narrow sector fund.",
+    "risks": "Heavy weighting toward mega-cap tech means any broad tech de-rating (e.g., from rate-hike fears) would drag on the whole fund despite today's chip strength."
+   }
+  ],
+  "watchlist": [
+   {
+    "ticker": "GLW",
+    "name": "Corning Inc.",
+    "reason": "Up 5.68% on 'AI positioning' but one headline asks 'Why Is GLW Stock Falling Today?' \u2014 conflicting signals warrant watching before committing."
+   },
+   {
+    "ticker": "NRG",
+    "name": "NRG Energy",
+    "reason": "Up 6.4% despite a reported profit miss; worth watching whether the AI power-demand narrative can keep overriding weak fundamentals."
+   },
+   {
+    "ticker": "LULU",
+    "name": "Lululemon Athletica",
+    "reason": "Down 17% on guidance cut, but Michael Burry says he'll keep buying under $100 and simplywall.st flags 38% undervaluation \u2014 a name to watch for stabilization before buying."
+   },
+   {
+    "ticker": "ADSK",
+    "name": "Autodesk",
+    "reason": "Fell 8.3% despite a 'strong quarter,' with forward multiple near a two-year low \u2014 could be an overreaction worth monitoring for a bounce."
+   }
+  ],
+  "avoid": [
+   {
+    "ticker": "FICO",
+    "name": "Fair Isaac",
+    "reason": "Stock fell ~17-19% after a federal regulator moved to end FICO's mortgage-scoring monopoly by promoting VantageScore 4.0 as an alternative \u2014 this is a structural threat to the company's core moat, not a sentiment-driven overreaction.",
+    "plain_english": "This isn't a stock that just had a bad day \u2014 regulators are actively working to break up the exclusive business model that made this company so profitable, so the drop reflects a real, lasting problem, not a buying opportunity."
+   },
+   {
+    "ticker": "EFX",
+    "name": "Equifax",
+    "reason": "Down 6.4% amid regulatory 'complaint portal' focus, which echoes the same credit-bureau scrutiny theme hitting FICO \u2014 sector-wide regulatory risk rather than a one-off dip.",
+    "plain_english": "This credit-reporting company is caught in the same regulatory crackdown wave as FICO, so the decline reflects genuine business risk from watchdogs, not just short-term panic."
+   },
+   {
+    "ticker": "PTC",
+    "name": "PTC Inc.",
+    "reason": "Down 6% on the day and 10% over 5 days with TipRanks headline 'PTC Stock Sinks As Growth Story Shows Cracks' \u2014 no offsetting catalyst or bullish counter-narrative in the evidence provided.",
+    "plain_english": "This software company's growth story is reportedly weakening, and there's no positive news here to suggest the sell-off is overdone, so it's better to wait on the sidelines."
+   }
+  ]
+ }
+}

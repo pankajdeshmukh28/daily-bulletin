@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.pankaj.stock-signal-india</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/pankajdeshmukh/workspace/video-pipeline/passive-apps/stock-signal-bot/.venv/bin/python</string>
+    <string>run_daily.py</string>
+    <string>--market</string>
+    <string>india</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/pankajdeshmukh/workspace/video-pipeline/passive-apps/stock-signal-bot</string>
+  <key>StandardOutPath</key>
+  <string>/Users/pankajdeshmukh/workspace/video-pipeline/passive-apps/stock-signal-bot/logs/india.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/pankajdeshmukh/workspace/video-pipeline/passive-apps/stock-signal-bot/logs/india.log</string>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Weekday</key><integer>0</integer><key>Hour</key><integer>19</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>19</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>19</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>19</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>19</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
+</dict>
+</plist>

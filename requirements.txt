@@ -1,0 +1,7 @@
+anthropic
+yfinance
+feedparser
+python-dotenv
+requests
+pandas
+lxml

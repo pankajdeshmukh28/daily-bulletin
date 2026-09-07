@@ -38,3 +38,4 @@
 {"date": "2026-09-07", "market": "india", "ticker": "PHARMABEES.NS", "name": "Nippon Nifty Pharma BeES", "conviction": 2, "signal_type": "etf", "entry_close": 27.34, "index_entry_close": 23750.45}
 {"date": "2026-09-07", "market": "us", "ticker": "WDC", "name": "Western Digital", "conviction": 3, "signal_type": "momentum", "entry_close": 467.46, "index_entry_close": 7718.6}
 {"date": "2026-09-07", "market": "us", "ticker": "QQQ", "name": "Invesco QQQ (big tech)", "conviction": 3, "signal_type": "etf", "entry_close": 718.96, "index_entry_close": 7718.6}
+{"date": "2026-09-07", "market": "us", "ticker": "XLK", "name": "Technology Select Sector SPDR", "conviction": 3, "signal_type": "etf", "entry_close": 187.28, "index_entry_close": 7718.6}

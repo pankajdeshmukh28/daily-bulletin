@@ -148,7 +148,8 @@ def analyze(market: str, context: dict) -> dict:
     client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     response = client.messages.create(
         model=CLAUDE_MODEL,
-        max_tokens=12000,  # generous: 10 picks + ETFs, and thinking tokens eat into this
+        max_tokens=18000,  # 10 picks + ETFs + avoid explanations is verbose, and thinking
+                           # tokens eat into this too — 12000 truncated on a heavy day (2026-09-11)
         system=SYSTEM_PROMPT % {"num_picks": NUM_PICKS, "num_etf_picks": NUM_ETF_PICKS},
         messages=[{"role": "user", "content": _build_user_prompt(market, context)}],
     )

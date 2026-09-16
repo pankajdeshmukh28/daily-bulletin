@@ -47,6 +47,19 @@ MARKETS = {
             {"ticker": "GLD", "name": "SPDR Gold Shares", "theme": "gold"},
             {"ticker": "TLT", "name": "iShares 20+ Year Treasury", "theme": "US government bonds"},
         ],
+        # yfinance ticker == fund identifier for US mutual funds (unlike India,
+        # they trade like any other symbol, no separate NAV lookup needed).
+        "mutual_funds": [
+            {"id": "FXAIX", "name": "Fidelity 500 Index Fund"},
+            {"id": "VTSAX", "name": "Vanguard Total Stock Market Index Admiral"},
+            {"id": "VFIAX", "name": "Vanguard 500 Index Admiral"},
+            {"id": "FCNTX", "name": "Fidelity Contrafund"},
+            {"id": "VWELX", "name": "Vanguard Wellington Fund"},
+        ],
+        # Annualized risk-free rate for Sharpe/alpha. US: pulled live from
+        # yfinance's ^IRX (13-week T-bill yield) in mutual_funds.py; this is
+        # only the fallback if that fetch fails.
+        "risk_free_rate_fallback": 0.045,
     },
     "india": {
         "label": "India — Nifty 50",
@@ -70,8 +83,24 @@ MARKETS = {
             {"ticker": "SILVERBEES.NS", "name": "Nippon Silver BeES", "theme": "silver"},
             {"ticker": "MON100.NS", "name": "Motilal Oswal Nasdaq 100", "theme": "US big tech (from India)"},
         ],
+        # mfapi.in scheme codes (Direct Plan, Growth option — the standard
+        # choice: lowest expense ratio, no dividend-payout NAV drag). India
+        # mutual funds have no market ticker, unlike US ones — see mutual_funds.py.
+        "mutual_funds": [
+            {"id": "122639", "name": "Parag Parikh Flexi Cap Fund"},
+            {"id": "118955", "name": "HDFC Flexi Cap Fund"},
+            {"id": "118825", "name": "Mirae Asset Large Cap Fund"},
+            {"id": "120586", "name": "ICICI Prudential Large Cap Fund"},
+        ],
+        # RBI repo rate as of ~Sept 2026 — no free live daily source found;
+        # update this manually when it changes (same pattern as the ElevenLabs
+        # voice ID in the video pipeline: a hand-maintained constant).
+        "risk_free_rate_fallback": 0.055,
     },
 }
+
+# Years of daily-return history used for the fund risk metrics.
+FUND_METRICS_LOOKBACK_YEARS = 3
 
 # How many top movers (each direction) get per-ticker news pulled.
 TOP_MOVERS_PER_DIRECTION = 12

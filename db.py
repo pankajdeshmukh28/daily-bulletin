@@ -70,6 +70,21 @@ _SCHEMA_STATEMENTS = [
         created_at TEXT DEFAULT CURRENT_TIMESTAMP,
         UNIQUE(date, market)
     )""",
+    """CREATE TABLE IF NOT EXISTS fund_metrics (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        date TEXT NOT NULL,                -- date the evaluation was run
+        market TEXT NOT NULL,
+        fund_id TEXT NOT NULL,             -- US: ticker (FXAIX). India: mfapi scheme code.
+        name TEXT,
+        benchmark TEXT,
+        period_years INTEGER,
+        std_dev REAL,                      -- annualized, as %
+        beta REAL,
+        alpha REAL,                        -- annualized (Jensen's alpha), as %
+        sharpe REAL,
+        r_squared REAL,                    -- as %
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP
+    )""",
 ]
 
 _schema_ready = False
@@ -230,3 +245,42 @@ def load_runs(limit: int = 20) -> list[dict]:
     ensure_schema()
     result = _execute("SELECT * FROM runs ORDER BY created_at DESC LIMIT ?", [limit])
     return _rows_as_dicts(result)
+
+
+def save_fund_metrics(row: dict):
+    """row: output of mutual_funds.evaluate_fund(). Append-only — each
+    evaluation is kept as its own historical record, not overwritten, so
+    metrics-over-time is queryable later."""
+    ensure_schema()
+    _execute(
+        """INSERT INTO fund_metrics (date, market, fund_id, name, benchmark, period_years,
+                                      std_dev, beta, alpha, sharpe, r_squared)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        [row["date"], row["market"], row["fund_id"], row["name"], row["benchmark"],
+         row["period_years"], row["std_dev"], row["beta"], row["alpha"],
+         row["sharpe"], row["r_squared"]],
+    )
+
+
+def load_fund_metrics(market: str | None = None, fund_id: str | None = None,
+                       latest_only: bool = True) -> list[dict]:
+    ensure_schema()
+    sql = "SELECT * FROM fund_metrics WHERE 1=1"
+    params = []
+    if market:
+        sql += " AND market = ?"
+        params.append(market)
+    if fund_id:
+        sql += " AND fund_id = ?"
+        params.append(fund_id)
+    sql += " ORDER BY created_at DESC"
+    rows = _rows_as_dicts(_execute(sql, params))
+    if latest_only:
+        seen, out = set(), []
+        for r in rows:
+            key = (r["market"], r["fund_id"])
+            if key not in seen:
+                seen.add(key)
+                out.append(r)
+        return out
+    return rows

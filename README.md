@@ -23,6 +23,42 @@ Daily news-driven directional digest for the **S&P 500 (US)** and **Nifty 50
 It generates research signals only — it does **not** place trades, and its
 output is informational, not financial advice.
 
+## Mutual fund evaluation
+
+Mutual funds don't fit the daily news-signal model (NAV prices once a day,
+no intraday responsiveness — see the "why not mutual funds" discussion this
+project's history), but they're where most actual investing happens, so
+there's a separate, complementary capability: risk/return evaluation using
+the five standard quant metrics — **standard deviation, beta, alpha, Sharpe
+ratio, R-squared** — computed from daily returns over a 3-year window
+against the market benchmark (`mutual_funds.py`).
+
+Data sources (funds have no unified price feed the way stocks do):
+- **US**: funds trade with a real ticker (FXAIX, VTSAX, ...) — same
+  `yfinance` path as stocks/ETFs.
+- **India**: no ticker exists at all — uses [mfapi.in](https://www.mfapi.in/),
+  a free, no-auth API serving AMFI's official daily NAV history by scheme
+  code.
+
+```
+.venv/bin/python evaluate_funds.py --market us              # curated list
+.venv/bin/python evaluate_funds.py --market india
+.venv/bin/python evaluate_funds.py --market us --fund FXAIX --name "Fidelity 500 Index"
+.venv/bin/python evaluate_funds.py --market india --search "quant small cap"   # find a scheme code
+.venv/bin/python evaluate_funds.py --market india --fund 120828 --name "Quant Small Cap Fund"
+```
+
+Every evaluation (curated or one-off) is appended to the `fund_metrics`
+table in Turso — history is kept, not overwritten, so metrics-over-time
+becomes queryable later. Curated lists live in `config.py`
+(`MARKETS[market]["mutual_funds"]`). The weekly `funds` job in
+`daily.yml` (Sundays) refreshes the curated list automatically — risk
+metrics don't meaningfully change day to day, so this doesn't need the
+daily cadence the stock digest does.
+
+Sanity-checked live: an S&P 500 index fund evaluated against the S&P 500
+itself correctly comes back with beta ≈ 1.00 and R² ≈ 99.9%.
+
 ## Run
 
 ```

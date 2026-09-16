@@ -6,10 +6,19 @@ on:
     - cron: "45 12 * * 1-5"
     # 02:30 UTC = 8:00 AM IST — before NSE opens at 9:15 IST (03:45 UTC)
     - cron: "30 2 * * 1-5"
+    # 03:00 UTC Sunday — weekly refresh of the curated mutual fund list.
+    # Risk metrics (std dev, beta, alpha, Sharpe, R²) barely move day to
+    # day, so this doesn't need the daily cadence the stock digest does.
+    - cron: "0 3 * * 0"
   workflow_dispatch:
     inputs:
+      target:
+        description: "What to run"
+        type: choice
+        options: [digest, funds]
+        default: digest
       market:
-        description: "Which market to run"
+        description: "Which market (digest only)"
         type: choice
         options: [us, india, both]
         default: both
@@ -20,6 +29,9 @@ concurrency:
 
 jobs:
   digest:
+    if: >
+      (github.event_name == 'workflow_dispatch' && inputs.target == 'digest') ||
+      github.event.schedule == '45 12 * * 1-5' || github.event.schedule == '30 2 * * 1-5'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -58,3 +70,26 @@ jobs:
         run: |
           python track.py
           cat reports/scorecard.md >> "$GITHUB_STEP_SUMMARY"
+
+  funds:
+    if: >
+      (github.event_name == 'workflow_dispatch' && inputs.target == 'funds') ||
+      github.event.schedule == '0 3 * * 0'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Evaluate curated mutual fund lists
+        env:
+          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+        run: |
+          python evaluate_funds.py --market us
+          python evaluate_funds.py --market india

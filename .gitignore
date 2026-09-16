@@ -4,3 +4,6 @@ __pycache__/
 logs/
 data/
 reports/
+# generated dashboard: embeds real picks/fund data, same privacy reasoning
+# as data/ and reports/ above — the template + render script stay tracked.
+scripts/dashboard.html

@@ -59,6 +59,35 @@ daily cadence the stock digest does.
 Sanity-checked live: an S&P 500 index fund evaluated against the S&P 500
 itself correctly comes back with beta ≈ 1.00 and R² ≈ 99.9%.
 
+## Web dashboard
+
+A published Claude Artifact — **Daily Bull-etin** — shows the latest digest
+for both markets, the curated fund leaderboard, an on-demand fund evaluator,
+and the real performance scorecard (including the conviction-vs-alpha chart
+that first surfaced the conviction-inversion finding). It's a *manually
+refreshed* snapshot, not a live-updating site — a published Artifact page
+can't call our own Turso API directly (the sandbox's script-only CDN
+allowlist blocks arbitrary `fetch`), so:
+
+```
+.venv/bin/python scripts/render_dashboard.py   # pulls fresh Turso data into scripts/dashboard.html
+```
+
+then republish `scripts/dashboard.html` to the same Artifact URL. The
+**fund evaluator is genuinely interactive** via the Artifact `db`
+capability: a viewer submits a fund → it's written to a `requests`
+collection as `pending` → ask Claude (in a session with access to this
+project) to process pending requests → Claude runs `evaluate_funds.py` and
+writes the result back → every open viewer sees it update live via
+`onSnapshot`, no republish needed. This is asynchronous by design, not
+instant — there's no way for a static page to run real computation on
+demand, so the honest design is "request now, computed next time someone's
+here to fulfill it," not a fake instant answer.
+
+Design: "ink ledger" theme — Fraunces (display) + Archivo (body) + IBM Plex
+Mono (tabular data), deep ink-indigo accent kept separate from the
+semantic green/red gain/loss colors, dark mode fully implemented.
+
 ## Run
 
 ```

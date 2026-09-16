@@ -1,0 +1,382 @@
+<title>Daily Bull-etin</title>
+<style>
+:root{
+  --paper:#EEECE1; --paper-raised:#F8F6EE; --paper-sunken:#E4E1D3;
+  --ink:#1C2333; --ink-soft:#565F78; --ink-faint:#8890A3;
+  --accent:#2F3E68; --accent-strong:#1E2A4D; --accent-soft:#E1E5F1;
+  --brass:#8A6A1E;
+  --gain:#1E7A4C; --gain-soft:#DCEEE2;
+  --loss:#A23B2E; --loss-soft:#F3DDD8;
+  --rule:#D3CDBB; --rule-strong:#B7B09B;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Archivo',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#14171F; --paper-raised:#1B1F2B; --paper-sunken:#10131A;
+    --ink:#EDEBDF; --ink-soft:#A9AEC0; --ink-faint:#6E7488;
+    --accent:#8C9FDC; --accent-strong:#AAB9E8; --accent-soft:#232B44;
+    --brass:#D8B563;
+    --gain:#55C08A; --gain-soft:#17301F;
+    --loss:#E27C6A; --loss-soft:#3A231F;
+    --rule:#2A2E3C; --rule-strong:#3A3F52;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14171F; --paper-raised:#1B1F2B; --paper-sunken:#10131A;
+  --ink:#EDEBDF; --ink-soft:#A9AEC0; --ink-faint:#6E7488;
+  --accent:#8C9FDC; --accent-strong:#AAB9E8; --accent-soft:#232B44;
+  --brass:#D8B563;
+  --gain:#55C08A; --gain-soft:#17301F;
+  --loss:#E27C6A; --loss-soft:#3A231F;
+  --rule:#2A2E3C; --rule-strong:#3A3F52;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding:2rem 1.25rem 4rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;text-wrap:balance;margin:0}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+
+.masthead{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;
+  border-bottom:2px solid var(--ink);padding-bottom:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.masthead h1{font-size:2.4rem;letter-spacing:-.01em}
+.masthead .sub{font-size:.8rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin-top:.35rem}
+.masthead .meta{font-family:var(--font-mono);font-size:.75rem;color:var(--ink-faint);text-align:right}
+
+.section{margin-top:3rem}
+.section-label{font-family:var(--font-body);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--brass);font-weight:600;margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
+.section-label::after{content:"";flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:1.5rem;margin-bottom:1rem}
+
+.markets{display:grid;grid-template-columns:1fr;gap:2rem}
+@media (min-width:800px){.markets{grid-template-columns:1fr 1fr}}
+.market-col{background:var(--paper-raised);border:1px solid var(--rule);border-radius:10px;padding:1.25rem 1.35rem}
+.market-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.25rem}
+.market-head h3{font-size:1.15rem}
+.idx-move{font-family:var(--font-mono);font-size:.85rem}
+.idx-move.up{color:var(--gain)} .idx-move.down{color:var(--loss)}
+.market-summary{font-size:.85rem;color:var(--ink-soft);margin:.5rem 0 1rem;padding-bottom:1rem;border-bottom:1px dashed var(--rule)}
+
+.pick-row{padding:.6rem 0;border-bottom:1px solid var(--rule)}
+.pick-row:last-child{border-bottom:none}
+.pick-top{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+.pick-ticker{font-family:var(--font-mono);font-weight:700;font-size:.92rem}
+.pick-name{color:var(--ink-soft);font-size:.85rem}
+.stars{color:var(--brass);font-size:.78rem;letter-spacing:.05em;margin-left:auto}
+.stars .empty{color:var(--rule-strong)}
+.chip{display:inline-block;font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;
+  padding:.1rem .45rem;border-radius:99px;background:var(--accent-soft);color:var(--accent-strong);
+  font-weight:600;margin-left:.4rem}
+.pick-plain{font-size:.85rem;margin-top:.3rem;color:var(--ink)}
+.pick-row details{margin-top:.4rem}
+.pick-row summary{cursor:pointer;font-size:.75rem;color:var(--accent);font-weight:600;list-style:none}
+.pick-row summary::before{content:"+ ";font-family:var(--font-mono)}
+.pick-row details[open] summary::before{content:"- "}
+.pick-detail{font-size:.82rem;color:var(--ink-soft);margin-top:.4rem;display:grid;gap:.3rem}
+.pick-detail b{color:var(--ink);font-weight:600}
+
+.avoid-strip{margin-top:1rem;padding-top:.75rem;border-top:1px solid var(--rule)}
+.avoid-strip .label{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--loss);font-weight:600;margin-bottom:.4rem}
+.avoid-item{font-size:.8rem;margin-bottom:.3rem}
+.avoid-item .avoid-ticker{font-family:var(--font-mono);font-weight:700;color:var(--loss)}
+
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);
+  font-weight:600;padding:.4rem .5rem;border-bottom:2px solid var(--ink)}
+td{padding:.5rem;border-bottom:1px solid var(--rule)}
+tbody tr:nth-child(even){background:var(--paper-sunken)}
+.num{font-family:var(--font-mono);text-align:right}
+.fund-name{font-weight:600} .fund-sub{color:var(--ink-faint);font-size:.75rem}
+.table-scroll{overflow-x:auto}
+
+.eval-form{background:var(--paper-raised);border:1px solid var(--rule);border-radius:10px;padding:1.25rem;margin-top:1.5rem}
+.eval-form form{display:grid;grid-template-columns:auto 1fr 1fr auto;gap:.6rem;align-items:end}
+@media (max-width:700px){.eval-form form{grid-template-columns:1fr}}
+.field label{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);margin-bottom:.3rem}
+.field select,.field input{width:100%;font-family:var(--font-body);font-size:.85rem;padding:.5rem .6rem;
+  border:1px solid var(--rule-strong);border-radius:6px;background:var(--paper);color:var(--ink)}
+.field select:focus,.field input:focus{outline:2px solid var(--accent);outline-offset:1px}
+button{font-family:var(--font-body);font-weight:600;font-size:.85rem;padding:.55rem 1rem;
+  border-radius:6px;border:none;background:var(--accent);color:var(--paper-raised);cursor:pointer}
+button:hover{background:var(--accent-strong)}
+button:disabled{opacity:.6;cursor:default}
+.eval-note{font-size:.76rem;color:var(--ink-faint);margin-top:.7rem}
+.form-msg{font-size:.8rem;margin-top:.6rem;min-height:1.1em}
+.form-msg.ok{color:var(--gain)} .form-msg.err{color:var(--loss)}
+
+.requests{margin-top:1.25rem}
+.req-item{display:flex;justify-content:space-between;align-items:center;gap:.75rem;
+  padding:.55rem 0;border-bottom:1px solid var(--rule);font-size:.83rem;flex-wrap:wrap}
+.req-left{display:flex;align-items:center;gap:.5rem;min-width:0}
+.req-fund{font-family:var(--font-mono);font-weight:700}
+.pill{font-size:.68rem;padding:.15rem .5rem;border-radius:99px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.pill.pending{background:var(--accent-soft);color:var(--accent-strong)}
+.pill.done{background:var(--gain-soft);color:var(--gain)}
+.req-metrics{font-family:var(--font-mono);font-size:.78rem;color:var(--ink-soft);display:flex;gap:.85rem;flex-wrap:wrap}
+.empty-state{color:var(--ink-faint);font-size:.82rem;padding:.5rem 0}
+
+.scorecard-top{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.stat{min-width:110px}
+.stat .v{font-family:var(--font-mono);font-size:1.5rem;font-weight:600}
+.stat .v.gain{color:var(--gain)} .stat .v.loss{color:var(--loss)}
+.stat .l{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint)}
+.chart-note{font-size:.78rem;color:var(--ink-soft);margin-bottom:.5rem}
+svg.barchart text{font-family:var(--font-mono);fill:var(--ink-soft)}
+svg.barchart .rowlabel{font-family:var(--font-body);fill:var(--ink);font-weight:600}
+
+footer{margin-top:3.5rem;padding-top:1.25rem;border-top:1px solid var(--rule);
+  font-size:.76rem;color:var(--ink-faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <h1>Daily Bull-etin</h1>
+      <div class="sub">News-driven stock &amp; fund research &mdash; US and India</div>
+    </div>
+    <div class="meta" id="meta-generated"></div>
+  </header>
+
+  <section class="section" id="digest-section">
+    <div class="section-label">Today's signal</div>
+    <div class="markets" id="markets"></div>
+  </section>
+
+  <section class="section" id="fund-section">
+    <div class="section-label">Mutual fund evaluator</div>
+    <h2>Risk-adjusted, not just returns</h2>
+    <div class="table-scroll">
+      <table id="fund-table">
+        <thead><tr>
+          <th>Fund</th><th class="num">Std dev</th><th class="num">Beta</th>
+          <th class="num">Alpha</th><th class="num">Sharpe</th><th class="num">R<sup>2</sup></th>
+        </tr></thead>
+        <tbody id="fund-rows"></tbody>
+      </table>
+    </div>
+
+    <div class="eval-form">
+      <h3 style="font-size:1rem;margin-bottom:.75rem">Evaluate a fund</h3>
+      <form id="eval-form">
+        <div class="field">
+          <label for="f-market">Market</label>
+          <select id="f-market">
+            <option value="us">US</option>
+            <option value="india">India</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-id" id="f-id-label">Ticker</label>
+          <input id="f-id" placeholder="FCNTX" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="f-name">Fund name</label>
+          <input id="f-name" placeholder="Fidelity Contrafund" autocomplete="off">
+        </div>
+        <button type="submit" id="f-submit">Request evaluation</button>
+      </form>
+      <div class="form-msg" id="f-msg"></div>
+      <p class="eval-note">US: use the fund's ticker. India funds have no ticker &mdash; find the
+        scheme code by name at <a href="https://www.mfapi.in/" target="_blank" rel="noopener">mfapi.in</a>
+        first. Evaluations are computed by Claude, not instantly &mdash; after requesting, ask in
+        your Claude Code session to process pending fund requests.</p>
+      <div class="requests" id="requests"></div>
+    </div>
+  </section>
+
+  <section class="section" id="scorecard-section">
+    <div class="section-label">Performance ledger</div>
+    <h2>Is the signal actually working?</h2>
+    <div class="scorecard-top" id="scorecard-top"></div>
+    <div class="chart-note">Average alpha vs. index, by signal type</div>
+    <div id="chart-by-type"></div>
+    <div class="chart-note" style="margin-top:1.5rem">Average alpha vs. index, by conviction level</div>
+    <div id="chart-by-conv"></div>
+  </section>
+
+  <footer>
+    <span>Informational research only &mdash; not financial advice.</span>
+    <span>Sources: Google News RSS, yfinance, mfapi.in &middot; <span id="meta-generated-2"></span></span>
+  </footer>
+</div>
+
+<script type="application/json" id="dashboard-data">__DASHBOARD_DATA__</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<script>
+const DATA = JSON.parse(document.getElementById('dashboard-data').textContent);
+const esc = s => (s==null?'':String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const stars = n => { n = Math.round(n||0); let h=''; for(let i=1;i<=5;i++) h += `<span class="${i<=n?'':'empty'}">&starf;</span>`; return h; };
+const fmtPct = v => (v>0?'+':'') + v.toFixed(2) + '%';
+
+document.getElementById('meta-generated').textContent = 'as of ' + DATA.generated_at.replace('T',' ');
+document.getElementById('meta-generated-2').textContent = 'refreshed ' + DATA.generated_at.replace('T',' ');
+
+function renderMarket(key, label){
+  const m = DATA[key];
+  if (!m || !m.report) return `<div class="market-col"><p class="empty-state">No digest yet for ${esc(label)}.</p></div>`;
+  const idx = m.index;
+  const idxCls = idx && idx.pct_1d >= 0 ? 'up' : 'down';
+  const idxLine = idx ? `<span class="idx-move ${idxCls} mono">${idx.close} (${fmtPct(idx.pct_1d)})</span>` : '';
+  const picks = (m.report.picks||[]).map(p => `
+    <div class="pick-row">
+      <div class="pick-top">
+        <span class="pick-ticker">${esc(p.ticker)}</span>
+        <span class="pick-name">${esc(p.name)}</span>
+        <span class="chip">${esc(p.signal_type||'')}</span>
+        <span class="stars">${stars(p.conviction)}</span>
+      </div>
+      <div class="pick-plain">${esc(p.plain_english||'')}</div>
+      <details>
+        <summary>Full analysis</summary>
+        <div class="pick-detail">
+          <div><b>Thesis</b> ${esc(p.thesis)}</div>
+          <div><b>Catalysts</b> ${esc(p.catalysts)}</div>
+          <div><b>Risks</b> ${esc(p.risks)}</div>
+          <div><b>Horizon</b> ${esc(p.time_horizon)}</div>
+        </div>
+      </details>
+    </div>`).join('');
+  const etfs = (m.report.etf_picks||[]).map(p => `
+    <div class="pick-row">
+      <div class="pick-top">
+        <span class="pick-ticker">${esc(p.ticker)}</span>
+        <span class="pick-name">${esc(p.name)}</span>
+        <span class="stars">${stars(p.conviction)}</span>
+      </div>
+      <div class="pick-plain">${esc(p.plain_english||'')}</div>
+    </div>`).join('');
+  const avoid = (m.report.avoid||[]).map(a => `
+    <div class="avoid-item"><span class="avoid-ticker">${esc(a.ticker)}</span> &mdash;
+      ${esc(a.plain_english || a.reason)}</div>`).join('');
+  return `
+    <div class="market-col">
+      <div class="market-head"><h3>${esc(label)}</h3>${idxLine}</div>
+      <div class="market-summary">${esc(m.report.market_summary_plain || m.report.market_summary)}</div>
+      ${picks}
+      ${etfs ? `<div class="section-label" style="margin-top:1rem">Fund ideas</div>${etfs}` : ''}
+      ${avoid ? `<div class="avoid-strip"><div class="label">Avoid</div>${avoid}</div>` : ''}
+    </div>`;
+}
+document.getElementById('markets').innerHTML =
+  renderMarket('us', 'US &mdash; S&P 500') + renderMarket('india', 'India &mdash; Nifty 50');
+
+function fundRow(f){
+  return `<tr>
+    <td><div class="fund-name">${esc(f.name)}</div><div class="fund-sub mono">${esc(f.fund_id)} &middot; ${esc(f.market)}</div></td>
+    <td class="num">${Number(f.std_dev).toFixed(2)}%</td>
+    <td class="num">${Number(f.beta).toFixed(2)}</td>
+    <td class="num">${Number(f.alpha).toFixed(2)}%</td>
+    <td class="num" style="font-weight:700">${Number(f.sharpe).toFixed(2)}</td>
+    <td class="num">${Number(f.r_squared).toFixed(1)}%</td>
+  </tr>`;
+}
+const sortedFunds = [...(DATA.fund_metrics||[])].sort((a,b) => b.sharpe - a.sharpe);
+document.getElementById('fund-rows').innerHTML = sortedFunds.map(fundRow).join('') ||
+  `<tr><td colspan="6" class="empty-state">No funds evaluated yet.</td></tr>`;
+
+function divergingChart(rows, valueKey, labelKey){
+  if (!rows.length) return '<p class="empty-state">Not enough data yet.</p>';
+  const maxAbs = Math.max(...rows.map(r => Math.abs(r[valueKey])), 0.5);
+  const rowH = 26, leftW = 150, chartW = 380, midX = leftW + chartW/2;
+  const H = rows.length * rowH + 20;
+  let bars = '';
+  rows.forEach((r, i) => {
+    const y = 10 + i*rowH;
+    const v = r[valueKey];
+    const w = Math.abs(v)/maxAbs * (chartW/2 - 8);
+    const isGain = v >= 0;
+    const x = isGain ? midX : midX - w;
+    bars += `<text class="rowlabel" x="0" y="${y+rowH/2}" dominant-baseline="central" font-size="12">${esc(r[labelKey])}</text>`;
+    bars += `<rect x="${x}" y="${y+4}" width="${w}" height="${rowH-10}" rx="2" fill="${isGain?'var(--gain)':'var(--loss)'}"/>`;
+    bars += `<text x="${isGain? x+w+6 : x-6}" y="${y+rowH/2}" dominant-baseline="central" font-size="11" text-anchor="${isGain?'start':'end'}">${fmtPct(v)}</text>`;
+  });
+  return `<svg class="barchart" width="100%" viewBox="0 0 ${leftW+chartW+50} ${H}" role="img">
+    <line x1="${midX}" y1="4" x2="${midX}" y2="${H-4}" stroke="var(--rule-strong)" stroke-width="1"/>
+    ${bars}
+  </svg>`;
+}
+// by_type / by_conv rows are [label, n, avg_return, avg_alpha, beat_n, beat_total]
+const typeRows = (DATA.scorecard.by_type||[]).map(r => ({label:r[0], alpha:r[3], n:r[1]}));
+const convRows = (DATA.scorecard.by_conv||[]).map(r => ({label:'Conviction '+r[0], alpha:r[3], n:r[1]}));
+document.getElementById('chart-by-type').innerHTML = divergingChart(typeRows, 'alpha', 'label');
+document.getElementById('chart-by-conv').innerHTML = divergingChart(convRows, 'alpha', 'label');
+
+const sc = DATA.scorecard;
+document.getElementById('scorecard-top').innerHTML = `
+  <div class="stat"><div class="v">${sc.n}</div><div class="l">Picks graded</div></div>
+  <div class="stat"><div class="v ${sc.avg_return>=0?'gain':'loss'}">${fmtPct(sc.avg_return)}</div><div class="l">Avg return</div></div>
+  <div class="stat"><div class="v ${sc.avg_alpha>=0?'gain':'loss'}">${fmtPct(sc.avg_alpha)}</div><div class="l">Avg alpha vs index</div></div>
+  <div class="stat"><div class="v">${sc.beat_n}/${sc.beat_total}</div><div class="l">Beat the index</div></div>`;
+
+// --- Fund evaluator: db-backed request queue ---
+(async () => {
+  const dbCap = (typeof claude !== 'undefined' && claude.use) ? await claude.use('db') : null;
+  const marketSel = document.getElementById('f-market');
+  const idLabel = document.getElementById('f-id-label');
+  const idInput = document.getElementById('f-id');
+  const msg = document.getElementById('f-msg');
+  const submitBtn = document.getElementById('f-submit');
+  const reqList = document.getElementById('requests');
+
+  marketSel.addEventListener('change', () => {
+    if (marketSel.value === 'india') { idLabel.textContent = 'Scheme code'; idInput.placeholder = '122639'; }
+    else { idLabel.textContent = 'Ticker'; idInput.placeholder = 'FCNTX'; }
+  });
+
+  if (!dbCap) {
+    submitBtn.disabled = true;
+    msg.textContent = 'Live requests need this page opened in claude.ai.';
+    msg.className = 'form-msg err';
+  } else {
+    document.getElementById('eval-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const market = marketSel.value, fundId = idInput.value.trim(), name = document.getElementById('f-name').value.trim();
+      if (!fundId) { msg.textContent = 'Enter a ticker or scheme code first.'; msg.className = 'form-msg err'; return; }
+      submitBtn.disabled = true;
+      try {
+        await dbCap.collection('requests').add({
+          market, fund_id: fundId, name: name || fundId,
+          status: 'pending', requested_at: new Date().toISOString(),
+        });
+        msg.textContent = 'Requested &mdash; it will appear below once evaluated.';
+        msg.className = 'form-msg ok';
+        idInput.value = ''; document.getElementById('f-name').value = '';
+      } catch (err) {
+        msg.textContent = 'Could not save the request (' + (err && err.code || 'error') + ').';
+        msg.className = 'form-msg err';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    dbCap.collection('requests').orderBy('requested_at', 'desc').limit(20).onSnapshot(
+      (snap) => {
+        if (snap.empty) { reqList.innerHTML = '<p class="empty-state">No fund requests yet.</p>'; return; }
+        reqList.innerHTML = snap.docs.map(doc => {
+          const d = doc.data();
+          if (d.status === 'done' && d.result) {
+            const r = d.result;
+            return `<div class="req-item">
+              <div class="req-left"><span class="req-fund">${esc(d.fund_id)}</span> ${esc(d.name)}
+                <span class="pill done">Done</span></div>
+              <div class="req-metrics">
+                <span>&sigma; ${Number(r.std_dev).toFixed(2)}%</span>
+                <span>&beta; ${Number(r.beta).toFixed(2)}</span>
+                <span>&alpha; ${Number(r.alpha).toFixed(2)}%</span>
+                <span>Sharpe ${Number(r.sharpe).toFixed(2)}</span>
+                <span>R<sup>2</sup> ${Number(r.r_squared).toFixed(1)}%</span>
+              </div></div>`;
+          }
+          return `<div class="req-item">
+            <div class="req-left"><span class="req-fund">${esc(d.fund_id)}</span> ${esc(d.name)}
+              <span class="pill pending">Pending</span></div></div>`;
+        }).join('');
+      },
+      (err) => { reqList.innerHTML = `<p class="empty-state">Requests unavailable (${esc(err.code)}).</p>`; }
+    );
+  }
+})();
+</script>

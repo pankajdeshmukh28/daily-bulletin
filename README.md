@@ -59,6 +59,16 @@ daily cadence the stock digest does.
 Sanity-checked live: an S&P 500 index fund evaluated against the S&P 500
 itself correctly comes back with beta ≈ 1.00 and R² ≈ 99.9%.
 
+Every evaluation also gets a **plain-English verdict** (`explain_fund` in
+`mutual_funds.py`, via Claude) that makes sense of all 5 numbers together
+for a non-quant reader — and, critically, uses R² to say how much to
+*trust* the beta/alpha reading, not just report it as a number. The raw
+figures stay visible alongside it, not replaced — this was explicit user
+feedback: the evaluator needs to work for everyday users without losing
+the detail seasoned users want. `claude_client.py` holds the shared
+Claude-response helpers (ThinkingBlock-safe text extraction, JSON-fence
+stripping, max_tokens truncation check) used by both this and `analyze.py`.
+
 ## Web dashboard
 
 A published Claude Artifact — **Daily Bull-etin** — shows the latest digest

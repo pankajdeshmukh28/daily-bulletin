@@ -14,15 +14,55 @@ window against the market index (S&P 500 / Nifty 50), annualized.
 """
 
 import datetime as dt
+import os
 
 import numpy as np
 import pandas as pd
 import requests
 import yfinance as yf
+from anthropic import Anthropic
 
-from config import FUND_METRICS_LOOKBACK_YEARS, MARKETS
+from claude_client import extract_text, require_complete
+from config import CLAUDE_MODEL, FUND_METRICS_LOOKBACK_YEARS, MARKETS
 
 MFAPI_BASE = "https://api.mfapi.in/mf"
+
+EXPLAIN_SYSTEM_PROMPT = """\
+You are explaining a mutual fund's risk/return statistics to someone who
+manages their own investments but is NOT a quant — they've never studied
+standard deviation, beta, alpha, Sharpe ratio, or R-squared in a classroom.
+You are given a fund's name, its benchmark, and its five computed metrics.
+
+Write ONE short paragraph (2-4 sentences) that makes sense of the numbers
+TOGETHER, not a definitions list. Cover, in plain language:
+- How bumpy a ride this fund is (standard deviation) and how it moves
+  relative to the benchmark (beta) — combine these into one idea of "how
+  much risk am I taking".
+- Whether the fund earned its keep: did it beat what its risk level alone
+  would predict (alpha), and was the reward worth the risk taken (Sharpe)?
+- Critically: use R-squared to qualify how much to TRUST the beta/alpha
+  reading. If R-squared is low (below ~70%), say plainly that this fund
+  doesn't really move with the benchmark, so the beta/alpha comparison is
+  less meaningful — don't just report R-squared as a number, explain what
+  it means for trusting the rest.
+
+Rules:
+- Plain language, but not baby talk — common investing words are fine
+  ("risk", "return", "outperform", "volatile", "benchmark"). Avoid dense
+  jargon ("alpha generation", "tracking error", "factor exposure").
+  Someone who reads this once should walk away knowing whether this looks
+  like a steady tracker, a genuinely differentiated pick, or a fund whose
+  numbers don't inspire confidence — and why.
+- Reference the actual figures naturally in the sentence (e.g. "it moved
+  about 30% more than the market" rather than just "high beta"), so a
+  reader who DOES know the jargon still finds it accurate and useful.
+- No bullet points, no headers, no restating the raw numbers as a list —
+  the numbers are already shown alongside this text. Just the paragraph.
+- Never give a buy/sell recommendation — this is risk-profile explanation,
+  not advice.
+
+Respond with ONLY the paragraph — no preamble, no markdown fences.
+"""
 
 
 def search_india_fund(query: str) -> list[dict]:
@@ -105,8 +145,33 @@ def compute_metrics(fund_prices: pd.Series, benchmark_prices: pd.Series,
     }
 
 
+def explain_fund(row: dict) -> str:
+    """Plain-English verdict tying the 5 metrics together for a non-quant
+    reader, while staying accurate enough that a seasoned investor reading
+    the same sentence still gets something out of it (see the digest's
+    plain_english fields for the same calibration philosophy)."""
+    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    prompt = (
+        f"Fund: {row['name']} ({row['fund_id']})\n"
+        f"Benchmark: {row['benchmark']}\n"
+        f"Standard deviation: {row['std_dev']}% annualized\n"
+        f"Beta: {row['beta']}\n"
+        f"Alpha: {row['alpha']}% annualized\n"
+        f"Sharpe ratio: {row['sharpe']}\n"
+        f"R-squared: {row['r_squared']}%\n"
+    )
+    response = client.messages.create(
+        model=CLAUDE_MODEL,
+        max_tokens=1500,  # short paragraph, but thinking tokens still eat into this
+        system=EXPLAIN_SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    require_complete(response)
+    return extract_text(response).strip()
+
+
 def evaluate_fund(market: str, fund_id: str, name: str = "",
-                   years: int = FUND_METRICS_LOOKBACK_YEARS) -> dict:
+                   years: int = FUND_METRICS_LOOKBACK_YEARS, explain: bool = True) -> dict:
     """fund_id: a ticker for US (e.g. 'FXAIX'), a mfapi scheme code for
     India (e.g. '122639'). Returns metrics + metadata, or raises if there's
     not enough overlapping history against the benchmark.
@@ -124,5 +189,7 @@ def evaluate_fund(market: str, fund_id: str, name: str = "",
             f"Not enough overlapping price history for {fund_id} vs "
             f"{cfg['index_name']} to compute metrics (need 60+ trading days)"
         )
-    return {"market": market, "fund_id": fund_id, "name": name or fund_id,
-            "benchmark": cfg["index_name"], "period_years": years, **metrics}
+    row = {"market": market, "fund_id": fund_id, "name": name or fund_id,
+           "benchmark": cfg["index_name"], "period_years": years, **metrics}
+    row["explanation"] = explain_fund(row) if explain else ""
+    return row

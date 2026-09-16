@@ -83,6 +83,7 @@ _SCHEMA_STATEMENTS = [
         alpha REAL,                        -- annualized (Jensen's alpha), as %
         sharpe REAL,
         r_squared REAL,                    -- as %
+        explanation TEXT,                  -- plain-English verdict (Claude-generated)
         created_at TEXT DEFAULT CURRENT_TIMESTAMP
     )""",
 ]
@@ -159,7 +160,18 @@ def ensure_schema():
     global _schema_ready
     if not _schema_ready:
         _execute_many([(s, []) for s in _SCHEMA_STATEMENTS])
+        _migrate()
         _schema_ready = True
+
+
+def _migrate():
+    """Idempotent ALTER TABLEs for columns added after a table already had
+    live rows (CREATE TABLE IF NOT EXISTS alone won't add them)."""
+    try:
+        _execute("ALTER TABLE fund_metrics ADD COLUMN explanation TEXT")
+    except RuntimeError as e:
+        if "duplicate column" not in str(e).lower():
+            raise
 
 
 def record_run(market: str, date: str, status: str, *, num_picks: int = 0,
@@ -254,11 +266,11 @@ def save_fund_metrics(row: dict):
     ensure_schema()
     _execute(
         """INSERT INTO fund_metrics (date, market, fund_id, name, benchmark, period_years,
-                                      std_dev, beta, alpha, sharpe, r_squared)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                                      std_dev, beta, alpha, sharpe, r_squared, explanation)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         [row["date"], row["market"], row["fund_id"], row["name"], row["benchmark"],
          row["period_years"], row["std_dev"], row["beta"], row["alpha"],
-         row["sharpe"], row["r_squared"]],
+         row["sharpe"], row["r_squared"], row.get("explanation", "")],
     )
 
 

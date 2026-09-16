@@ -32,6 +32,8 @@ def _print_metrics(row: dict):
     print(f"  Alpha              : {row['alpha']:>7.2f}%   (excess return beyond what beta predicts)")
     print(f"  Sharpe ratio       : {row['sharpe']:>7.2f}    (return per unit of risk)")
     print(f"  R-squared          : {row['r_squared']:>7.1f}%   (how much beta/alpha can be trusted)")
+    if row.get("explanation"):
+        print(f"\n  {row['explanation']}")
 
 
 def run_one(market: str, fund_id: str, name: str) -> dict:

@@ -83,14 +83,22 @@ a{color:var(--accent)}
 .avoid-item{font-size:.8rem;margin-bottom:.3rem}
 .avoid-item .avoid-ticker{font-family:var(--font-mono);font-weight:700;color:var(--loss)}
 
-table{width:100%;border-collapse:collapse;font-size:.85rem}
-th{text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);
-  font-weight:600;padding:.4rem .5rem;border-bottom:2px solid var(--ink)}
-td{padding:.5rem;border-bottom:1px solid var(--rule)}
-tbody tr:nth-child(even){background:var(--paper-sunken)}
-.num{font-family:var(--font-mono);text-align:right}
-.fund-name{font-weight:600} .fund-sub{color:var(--ink-faint);font-size:.75rem}
-.table-scroll{overflow-x:auto}
+.glossary{font-size:.8rem;color:var(--ink-soft);margin-bottom:1.25rem;line-height:1.7}
+.fund-cards{display:flex;flex-direction:column;gap:1rem}
+.fund-card{background:var(--paper-raised);border:1px solid var(--rule);border-radius:10px;padding:1.1rem 1.25rem}
+.fund-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.85rem}
+.fund-name{font-weight:600;font-size:1rem}
+.fund-sub{color:var(--ink-faint);font-size:.78rem;margin-top:.1rem}
+.sharpe-badge{text-align:right;flex-shrink:0}
+.sharpe-badge .v{font-family:var(--font-mono);font-size:1.4rem;font-weight:600;color:var(--accent)}
+.sharpe-badge .l{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint)}
+.stat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;padding:.75rem 0;
+  border-top:1px dashed var(--rule);border-bottom:1px dashed var(--rule)}
+@media (max-width:560px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+.stat-cell .stat-label{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint)}
+.stat-cell .stat-val{font-family:var(--font-mono);font-size:1.05rem;font-weight:600;margin:.15rem 0}
+.stat-cell .stat-cap{font-size:.72rem;color:var(--ink-soft);line-height:1.35}
+.fund-verdict{font-size:.85rem;color:var(--ink);margin-top:.85rem;line-height:1.6}
 
 .eval-form{background:var(--paper-raised);border:1px solid var(--rule);border-radius:10px;padding:1.25rem;margin-top:1.5rem}
 .eval-form form{display:grid;grid-template-columns:auto 1fr 1fr auto;gap:.6rem;align-items:end}
@@ -114,8 +122,6 @@ button:disabled{opacity:.6;cursor:default}
 .req-fund{font-family:var(--font-mono);font-weight:700}
 .pill{font-size:.68rem;padding:.15rem .5rem;border-radius:99px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
 .pill.pending{background:var(--accent-soft);color:var(--accent-strong)}
-.pill.done{background:var(--gain-soft);color:var(--gain)}
-.req-metrics{font-family:var(--font-mono);font-size:.78rem;color:var(--ink-soft);display:flex;gap:.85rem;flex-wrap:wrap}
 .empty-state{color:var(--ink-faint);font-size:.82rem;padding:.5rem 0}
 
 .scorecard-top{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.25rem}
@@ -148,15 +154,11 @@ footer{margin-top:3.5rem;padding-top:1.25rem;border-top:1px solid var(--rule);
   <section class="section" id="fund-section">
     <div class="section-label">Mutual fund evaluator</div>
     <h2>Risk-adjusted, not just returns</h2>
-    <div class="table-scroll">
-      <table id="fund-table">
-        <thead><tr>
-          <th>Fund</th><th class="num">Std dev</th><th class="num">Beta</th>
-          <th class="num">Alpha</th><th class="num">Sharpe</th><th class="num">R<sup>2</sup></th>
-        </tr></thead>
-        <tbody id="fund-rows"></tbody>
-      </table>
-    </div>
+    <p class="glossary">Std dev = how bumpy the ride is &middot; Beta = how much it swings versus the
+      benchmark &middot; Alpha = whether it beat what its risk level predicts &middot;
+      Sharpe = reward earned per unit of risk &middot; R<sup>2</sup> = how much of that
+      swing the benchmark actually explains (low R<sup>2</sup> means treat beta/alpha with caution).</p>
+    <div class="fund-cards" id="fund-cards"></div>
 
     <div class="eval-form">
       <h3 style="font-size:1rem;margin-bottom:.75rem">Evaluate a fund</h3>
@@ -261,21 +263,37 @@ function renderMarket(key, label){
     </div>`;
 }
 document.getElementById('markets').innerHTML =
-  renderMarket('us', 'US &mdash; S&P 500') + renderMarket('india', 'India &mdash; Nifty 50');
+  renderMarket('us', 'US - S&P 500') + renderMarket('india', 'India - Nifty 50');
 
-function fundRow(f){
-  return `<tr>
-    <td><div class="fund-name">${esc(f.name)}</div><div class="fund-sub mono">${esc(f.fund_id)} &middot; ${esc(f.market)}</div></td>
-    <td class="num">${Number(f.std_dev).toFixed(2)}%</td>
-    <td class="num">${Number(f.beta).toFixed(2)}</td>
-    <td class="num">${Number(f.alpha).toFixed(2)}%</td>
-    <td class="num" style="font-weight:700">${Number(f.sharpe).toFixed(2)}</td>
-    <td class="num">${Number(f.r_squared).toFixed(1)}%</td>
-  </tr>`;
+// Deterministic, always-available plain-language captions per stat — kept
+// separate from the LLM-generated `explanation` paragraph (which reasons
+// about all 5 together) so a caption still shows even if that's missing.
+function capStdDev(v){ return v < 10 ? 'fairly calm' : v < 20 ? 'moderate ups and downs' : 'a bumpy ride'; }
+function capBeta(v, bench){ return v < 0.8 ? `moves less than ${bench}` : v <= 1.2 ? `moves about with ${bench}` : `swings more than ${bench}`; }
+function capAlpha(v){ return v > 0.5 ? 'beat expectations' : v < -0.5 ? 'fell short of expectations' : 'about as expected'; }
+function capSharpe(v){ return v < 0 ? 'lost money for the risk taken' : v < 0.5 ? 'weak reward for the risk' : v < 1 ? 'decent reward for the risk' : 'strong reward for the risk'; }
+function capRSquared(v){ return v >= 80 ? 'closely tracks the benchmark' : v >= 50 ? 'partly tracks the benchmark' : 'moves mostly on its own'; }
+
+function fundCard(f){
+  const bench = esc(f.benchmark || 'the benchmark');
+  return `<div class="fund-card">
+    <div class="fund-card-head">
+      <div><div class="fund-name">${esc(f.name)}</div><div class="fund-sub mono">${esc(f.fund_id)} &middot; ${esc(f.market)}</div></div>
+      <div class="sharpe-badge"><div class="v">${Number(f.sharpe).toFixed(2)}</div><div class="l">Sharpe</div></div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-cell"><div class="stat-label">Std dev</div><div class="stat-val mono">${Number(f.std_dev).toFixed(2)}%</div><div class="stat-cap">${capStdDev(f.std_dev)}</div></div>
+      <div class="stat-cell"><div class="stat-label">Beta</div><div class="stat-val mono">${Number(f.beta).toFixed(2)}</div><div class="stat-cap">${capBeta(f.beta, bench)}</div></div>
+      <div class="stat-cell"><div class="stat-label">Alpha</div><div class="stat-val mono">${Number(f.alpha).toFixed(2)}%</div><div class="stat-cap">${capAlpha(f.alpha)}</div></div>
+      <div class="stat-cell"><div class="stat-label">Sharpe</div><div class="stat-val mono">${Number(f.sharpe).toFixed(2)}</div><div class="stat-cap">${capSharpe(f.sharpe)}</div></div>
+      <div class="stat-cell"><div class="stat-label">R&sup2;</div><div class="stat-val mono">${Number(f.r_squared).toFixed(1)}%</div><div class="stat-cap">${capRSquared(f.r_squared)}</div></div>
+    </div>
+    ${f.explanation ? `<p class="fund-verdict">${esc(f.explanation)}</p>` : ''}
+  </div>`;
 }
 const sortedFunds = [...(DATA.fund_metrics||[])].sort((a,b) => b.sharpe - a.sharpe);
-document.getElementById('fund-rows').innerHTML = sortedFunds.map(fundRow).join('') ||
-  `<tr><td colspan="6" class="empty-state">No funds evaluated yet.</td></tr>`;
+document.getElementById('fund-cards').innerHTML = sortedFunds.map(fundCard).join('') ||
+  `<p class="empty-state">No funds evaluated yet.</p>`;
 
 function divergingChart(rows, valueKey, labelKey){
   if (!rows.length) return '<p class="empty-state">Not enough data yet.</p>';
@@ -341,7 +359,7 @@ document.getElementById('scorecard-top').innerHTML = `
           market, fund_id: fundId, name: name || fundId,
           status: 'pending', requested_at: new Date().toISOString(),
         });
-        msg.textContent = 'Requested &mdash; it will appear below once evaluated.';
+        msg.textContent = 'Requested - it will appear below once evaluated.';
         msg.className = 'form-msg ok';
         idInput.value = ''; document.getElementById('f-name').value = '';
       } catch (err) {
@@ -355,20 +373,12 @@ document.getElementById('scorecard-top').innerHTML = `
     dbCap.collection('requests').orderBy('requested_at', 'desc').limit(20).onSnapshot(
       (snap) => {
         if (snap.empty) { reqList.innerHTML = '<p class="empty-state">No fund requests yet.</p>'; return; }
+        const benchmarkFor = m => m === 'india' ? 'Nifty 50' : 'S&P 500';
         reqList.innerHTML = snap.docs.map(doc => {
           const d = doc.data();
           if (d.status === 'done' && d.result) {
-            const r = d.result;
-            return `<div class="req-item">
-              <div class="req-left"><span class="req-fund">${esc(d.fund_id)}</span> ${esc(d.name)}
-                <span class="pill done">Done</span></div>
-              <div class="req-metrics">
-                <span>&sigma; ${Number(r.std_dev).toFixed(2)}%</span>
-                <span>&beta; ${Number(r.beta).toFixed(2)}</span>
-                <span>&alpha; ${Number(r.alpha).toFixed(2)}%</span>
-                <span>Sharpe ${Number(r.sharpe).toFixed(2)}</span>
-                <span>R<sup>2</sup> ${Number(r.r_squared).toFixed(1)}%</span>
-              </div></div>`;
+            return fundCard({ ...d.result, name: d.name, fund_id: d.fund_id, market: d.market,
+              benchmark: d.result.benchmark || benchmarkFor(d.market) });
           }
           return `<div class="req-item">
             <div class="req-left"><span class="req-fund">${esc(d.fund_id)}</span> ${esc(d.name)}

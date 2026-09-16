@@ -1,10 +1,10 @@
 """Claude analysis: digest headlines + price action into directional picks."""
 
-import json
 import os
 
 from anthropic import Anthropic
 
+from claude_client import extract_text, parse_json, require_complete
 from config import CLAUDE_MODEL, MARKETS, NUM_ETF_PICKS, NUM_PICKS
 
 SYSTEM_PROMPT = """\
@@ -127,23 +127,6 @@ def _build_user_prompt(market: str, context: dict) -> str:
     return "\n".join(lines)
 
 
-def _extract_text(response) -> str:
-    # claude-sonnet-5 may emit a ThinkingBlock before the text block —
-    # never assume content[0] is the text (same gotcha as the video pipeline).
-    for block in response.content:
-        if block.type == "text":
-            return block.text
-    raise RuntimeError("No text block in Claude response")
-
-
-def _parse_json(text: str) -> dict:
-    text = text.strip()
-    if text.startswith("```"):
-        text = text.split("```")[1]
-        text = text.removeprefix("json").strip()
-    return json.loads(text)
-
-
 def analyze(market: str, context: dict) -> dict:
     client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     response = client.messages.create(
@@ -153,6 +136,5 @@ def analyze(market: str, context: dict) -> dict:
         system=SYSTEM_PROMPT % {"num_picks": NUM_PICKS, "num_etf_picks": NUM_ETF_PICKS},
         messages=[{"role": "user", "content": _build_user_prompt(market, context)}],
     )
-    if response.stop_reason == "max_tokens":
-        raise RuntimeError("Claude response truncated (max_tokens) — raise the budget")
-    return _parse_json(_extract_text(response))
+    require_complete(response)
+    return parse_json(extract_text(response))

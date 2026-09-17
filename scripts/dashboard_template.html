@@ -83,45 +83,10 @@ a{color:var(--accent)}
 .avoid-item{font-size:.8rem;margin-bottom:.3rem}
 .avoid-item .avoid-ticker{font-family:var(--font-mono);font-weight:700;color:var(--loss)}
 
-.glossary{font-size:.8rem;color:var(--ink-soft);margin-bottom:1.25rem;line-height:1.7}
-.fund-cards{display:flex;flex-direction:column;gap:1rem}
-.fund-card{background:var(--paper-raised);border:1px solid var(--rule);border-radius:10px;padding:1.1rem 1.25rem}
-.fund-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.85rem}
-.fund-name{font-weight:600;font-size:1rem}
-.fund-sub{color:var(--ink-faint);font-size:.78rem;margin-top:.1rem}
-.sharpe-badge{text-align:right;flex-shrink:0}
-.sharpe-badge .v{font-family:var(--font-mono);font-size:1.4rem;font-weight:600;color:var(--accent)}
-.sharpe-badge .l{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint)}
-.stat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;padding:.75rem 0;
-  border-top:1px dashed var(--rule);border-bottom:1px dashed var(--rule)}
-@media (max-width:560px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
-.stat-cell .stat-label{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint)}
-.stat-cell .stat-val{font-family:var(--font-mono);font-size:1.05rem;font-weight:600;margin:.15rem 0}
-.stat-cell .stat-cap{font-size:.72rem;color:var(--ink-soft);line-height:1.35}
-.fund-verdict{font-size:.85rem;color:var(--ink);margin-top:.85rem;line-height:1.6}
+.fund-teaser{font-size:.85rem;color:var(--ink-soft);margin-top:2.5rem;padding:1rem 1.25rem;
+  background:var(--paper-raised);border:1px solid var(--rule);border-radius:10px}
+.fund-teaser a{font-weight:600}
 
-.eval-form{background:var(--paper-raised);border:1px solid var(--rule);border-radius:10px;padding:1.25rem;margin-top:1.5rem}
-.eval-form form{display:grid;grid-template-columns:auto 1fr 1fr auto;gap:.6rem;align-items:end}
-@media (max-width:700px){.eval-form form{grid-template-columns:1fr}}
-.field label{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);margin-bottom:.3rem}
-.field select,.field input{width:100%;font-family:var(--font-body);font-size:.85rem;padding:.5rem .6rem;
-  border:1px solid var(--rule-strong);border-radius:6px;background:var(--paper);color:var(--ink)}
-.field select:focus,.field input:focus{outline:2px solid var(--accent);outline-offset:1px}
-button{font-family:var(--font-body);font-weight:600;font-size:.85rem;padding:.55rem 1rem;
-  border-radius:6px;border:none;background:var(--accent);color:var(--paper-raised);cursor:pointer}
-button:hover{background:var(--accent-strong)}
-button:disabled{opacity:.6;cursor:default}
-.eval-note{font-size:.76rem;color:var(--ink-faint);margin-top:.7rem}
-.form-msg{font-size:.8rem;margin-top:.6rem;min-height:1.1em}
-.form-msg.ok{color:var(--gain)} .form-msg.err{color:var(--loss)}
-
-.requests{margin-top:1.25rem}
-.req-item{display:flex;justify-content:space-between;align-items:center;gap:.75rem;
-  padding:.55rem 0;border-bottom:1px solid var(--rule);font-size:.83rem;flex-wrap:wrap}
-.req-left{display:flex;align-items:center;gap:.5rem;min-width:0}
-.req-fund{font-family:var(--font-mono);font-weight:700}
-.pill{font-size:.68rem;padding:.15rem .5rem;border-radius:99px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.pill.pending{background:var(--accent-soft);color:var(--accent-strong)}
 .empty-state{color:var(--ink-faint);font-size:.82rem;padding:.5rem 0}
 
 .scorecard-top{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.25rem}
@@ -151,43 +116,8 @@ footer{margin-top:3.5rem;padding-top:1.25rem;border-top:1px solid var(--rule);
     <div class="markets" id="markets"></div>
   </section>
 
-  <section class="section" id="fund-section">
-    <div class="section-label">Mutual fund evaluator</div>
-    <h2>Risk-adjusted, not just returns</h2>
-    <p class="glossary">Std dev = how bumpy the ride is &middot; Beta = how much it swings versus the
-      benchmark &middot; Alpha = whether it beat what its risk level predicts &middot;
-      Sharpe = reward earned per unit of risk &middot; R<sup>2</sup> = how much of that
-      swing the benchmark actually explains (low R<sup>2</sup> means treat beta/alpha with caution).</p>
-    <div class="fund-cards" id="fund-cards"></div>
-
-    <div class="eval-form">
-      <h3 style="font-size:1rem;margin-bottom:.75rem">Evaluate a fund</h3>
-      <form id="eval-form">
-        <div class="field">
-          <label for="f-market">Market</label>
-          <select id="f-market">
-            <option value="us">US</option>
-            <option value="india">India</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-id" id="f-id-label">Ticker</label>
-          <input id="f-id" placeholder="FCNTX" autocomplete="off">
-        </div>
-        <div class="field">
-          <label for="f-name">Fund name</label>
-          <input id="f-name" placeholder="Fidelity Contrafund" autocomplete="off">
-        </div>
-        <button type="submit" id="f-submit">Request evaluation</button>
-      </form>
-      <div class="form-msg" id="f-msg"></div>
-      <p class="eval-note">US: use the fund's ticker. India funds have no ticker &mdash; find the
-        scheme code by name at <a href="https://www.mfapi.in/" target="_blank" rel="noopener">mfapi.in</a>
-        first. Evaluations are computed by Claude, not instantly &mdash; after requesting, ask in
-        your Claude Code session to process pending fund requests.</p>
-      <div class="requests" id="requests"></div>
-    </div>
-  </section>
+  <p class="fund-teaser">Want to evaluate a mutual fund (std dev, beta, alpha, Sharpe, R²)?
+    <a href="https://claude.ai/code/artifact/8dd634da-39b4-4aa5-9eb4-0d37726d9b5e">Open Fund Ledger &rarr;</a></p>
 
   <section class="section" id="scorecard-section">
     <div class="section-label">Performance ledger</div>
@@ -265,36 +195,6 @@ function renderMarket(key, label){
 document.getElementById('markets').innerHTML =
   renderMarket('us', 'US - S&P 500') + renderMarket('india', 'India - Nifty 50');
 
-// Deterministic, always-available plain-language captions per stat — kept
-// separate from the LLM-generated `explanation` paragraph (which reasons
-// about all 5 together) so a caption still shows even if that's missing.
-function capStdDev(v){ return v < 10 ? 'fairly calm' : v < 20 ? 'moderate ups and downs' : 'a bumpy ride'; }
-function capBeta(v, bench){ return v < 0.8 ? `moves less than ${bench}` : v <= 1.2 ? `moves about with ${bench}` : `swings more than ${bench}`; }
-function capAlpha(v){ return v > 0.5 ? 'beat expectations' : v < -0.5 ? 'fell short of expectations' : 'about as expected'; }
-function capSharpe(v){ return v < 0 ? 'lost money for the risk taken' : v < 0.5 ? 'weak reward for the risk' : v < 1 ? 'decent reward for the risk' : 'strong reward for the risk'; }
-function capRSquared(v){ return v >= 80 ? 'closely tracks the benchmark' : v >= 50 ? 'partly tracks the benchmark' : 'moves mostly on its own'; }
-
-function fundCard(f){
-  const bench = esc(f.benchmark || 'the benchmark');
-  return `<div class="fund-card">
-    <div class="fund-card-head">
-      <div><div class="fund-name">${esc(f.name)}</div><div class="fund-sub mono">${esc(f.fund_id)} &middot; ${esc(f.market)}</div></div>
-      <div class="sharpe-badge"><div class="v">${Number(f.sharpe).toFixed(2)}</div><div class="l">Sharpe</div></div>
-    </div>
-    <div class="stat-grid">
-      <div class="stat-cell"><div class="stat-label">Std dev</div><div class="stat-val mono">${Number(f.std_dev).toFixed(2)}%</div><div class="stat-cap">${capStdDev(f.std_dev)}</div></div>
-      <div class="stat-cell"><div class="stat-label">Beta</div><div class="stat-val mono">${Number(f.beta).toFixed(2)}</div><div class="stat-cap">${capBeta(f.beta, bench)}</div></div>
-      <div class="stat-cell"><div class="stat-label">Alpha</div><div class="stat-val mono">${Number(f.alpha).toFixed(2)}%</div><div class="stat-cap">${capAlpha(f.alpha)}</div></div>
-      <div class="stat-cell"><div class="stat-label">Sharpe</div><div class="stat-val mono">${Number(f.sharpe).toFixed(2)}</div><div class="stat-cap">${capSharpe(f.sharpe)}</div></div>
-      <div class="stat-cell"><div class="stat-label">R&sup2;</div><div class="stat-val mono">${Number(f.r_squared).toFixed(1)}%</div><div class="stat-cap">${capRSquared(f.r_squared)}</div></div>
-    </div>
-    ${f.explanation ? `<p class="fund-verdict">${esc(f.explanation)}</p>` : ''}
-  </div>`;
-}
-const sortedFunds = [...(DATA.fund_metrics||[])].sort((a,b) => b.sharpe - a.sharpe);
-document.getElementById('fund-cards').innerHTML = sortedFunds.map(fundCard).join('') ||
-  `<p class="empty-state">No funds evaluated yet.</p>`;
-
 function divergingChart(rows, valueKey, labelKey){
   if (!rows.length) return '<p class="empty-state">Not enough data yet.</p>';
   const maxAbs = Math.max(...rows.map(r => Math.abs(r[valueKey])), 0.5);
@@ -328,65 +228,4 @@ document.getElementById('scorecard-top').innerHTML = `
   <div class="stat"><div class="v ${sc.avg_return>=0?'gain':'loss'}">${fmtPct(sc.avg_return)}</div><div class="l">Avg return</div></div>
   <div class="stat"><div class="v ${sc.avg_alpha>=0?'gain':'loss'}">${fmtPct(sc.avg_alpha)}</div><div class="l">Avg alpha vs index</div></div>
   <div class="stat"><div class="v">${sc.beat_n}/${sc.beat_total}</div><div class="l">Beat the index</div></div>`;
-
-// --- Fund evaluator: db-backed request queue ---
-(async () => {
-  const dbCap = (typeof claude !== 'undefined' && claude.use) ? await claude.use('db') : null;
-  const marketSel = document.getElementById('f-market');
-  const idLabel = document.getElementById('f-id-label');
-  const idInput = document.getElementById('f-id');
-  const msg = document.getElementById('f-msg');
-  const submitBtn = document.getElementById('f-submit');
-  const reqList = document.getElementById('requests');
-
-  marketSel.addEventListener('change', () => {
-    if (marketSel.value === 'india') { idLabel.textContent = 'Scheme code'; idInput.placeholder = '122639'; }
-    else { idLabel.textContent = 'Ticker'; idInput.placeholder = 'FCNTX'; }
-  });
-
-  if (!dbCap) {
-    submitBtn.disabled = true;
-    msg.textContent = 'Live requests need this page opened in claude.ai.';
-    msg.className = 'form-msg err';
-  } else {
-    document.getElementById('eval-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const market = marketSel.value, fundId = idInput.value.trim(), name = document.getElementById('f-name').value.trim();
-      if (!fundId) { msg.textContent = 'Enter a ticker or scheme code first.'; msg.className = 'form-msg err'; return; }
-      submitBtn.disabled = true;
-      try {
-        await dbCap.collection('requests').add({
-          market, fund_id: fundId, name: name || fundId,
-          status: 'pending', requested_at: new Date().toISOString(),
-        });
-        msg.textContent = 'Requested - it will appear below once evaluated.';
-        msg.className = 'form-msg ok';
-        idInput.value = ''; document.getElementById('f-name').value = '';
-      } catch (err) {
-        msg.textContent = 'Could not save the request (' + (err && err.code || 'error') + ').';
-        msg.className = 'form-msg err';
-      } finally {
-        submitBtn.disabled = false;
-      }
-    });
-
-    dbCap.collection('requests').orderBy('requested_at', 'desc').limit(20).onSnapshot(
-      (snap) => {
-        if (snap.empty) { reqList.innerHTML = '<p class="empty-state">No fund requests yet.</p>'; return; }
-        const benchmarkFor = m => m === 'india' ? 'Nifty 50' : 'S&P 500';
-        reqList.innerHTML = snap.docs.map(doc => {
-          const d = doc.data();
-          if (d.status === 'done' && d.result) {
-            return fundCard({ ...d.result, name: d.name, fund_id: d.fund_id, market: d.market,
-              benchmark: d.result.benchmark || benchmarkFor(d.market) });
-          }
-          return `<div class="req-item">
-            <div class="req-left"><span class="req-fund">${esc(d.fund_id)}</span> ${esc(d.name)}
-              <span class="pill pending">Pending</span></div></div>`;
-        }).join('');
-      },
-      (err) => { reqList.innerHTML = `<p class="empty-state">Requests unavailable (${esc(err.code)}).</p>`; }
-    );
-  }
-})();
 </script>

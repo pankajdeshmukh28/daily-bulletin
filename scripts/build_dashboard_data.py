@@ -44,7 +44,10 @@ def build() -> dict:
                "report": db.load_report("us", us_date) if us_date else None},
         "india": {"date": india_date, "index": _latest_index("india"),
                   "report": db.load_report("india", india_date) if india_date else None},
-        "fund_metrics": db.load_fund_metrics(latest_only=True),
+        # Note: no fund_metrics here — the main dashboard doesn't show a
+        # preloaded fund list (user feedback: too much unrequested info on
+        # the main page). Fund detail lives on the separate Fund Ledger
+        # page (scripts/fund_ledger.html), populated only on request.
         "scorecard": {
             "n": len(graded),
             "avg_return": round(track._avg(rets), 2),

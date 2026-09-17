@@ -85,6 +85,21 @@ def _india_nav_series(scheme_code: str, years: int) -> pd.Series:
     return s[s.index >= cutoff]
 
 
+def resolve_fund_name(market: str, fund_id: str) -> str:
+    """Auto-resolve a fund's display name so callers (the Fund Ledger page)
+    don't need to ask the user to type it — one less form field. Falls back
+    to the raw identifier if the lookup fails for any reason."""
+    try:
+        if market == "india":
+            resp = requests.get(f"{MFAPI_BASE}/{fund_id}", timeout=20)
+            resp.raise_for_status()
+            return resp.json()["meta"]["scheme_name"]
+        info = yf.Ticker(fund_id).info
+        return info.get("longName") or info.get("shortName") or fund_id
+    except Exception:
+        return fund_id
+
+
 def _yfinance_price_series(ticker: str, years: int) -> pd.Series:
     data = yf.download(ticker, period=f"{years}y", interval="1d",
                         progress=False, auto_adjust=True)
@@ -189,7 +204,7 @@ def evaluate_fund(market: str, fund_id: str, name: str = "",
             f"Not enough overlapping price history for {fund_id} vs "
             f"{cfg['index_name']} to compute metrics (need 60+ trading days)"
         )
-    row = {"market": market, "fund_id": fund_id, "name": name or fund_id,
+    row = {"market": market, "fund_id": fund_id, "name": name or resolve_fund_name(market, fund_id),
            "benchmark": cfg["index_name"], "period_years": years, **metrics}
     row["explanation"] = explain_fund(row) if explain else ""
     return row

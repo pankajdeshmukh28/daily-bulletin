@@ -1,0 +1,209 @@
+<title>Fund Ledger</title>
+<style>
+:root{
+  --paper:#EEECE1; --paper-raised:#F8F6EE; --paper-sunken:#E4E1D3;
+  --ink:#1C2333; --ink-soft:#565F78; --ink-faint:#8890A3;
+  --accent:#2F3E68; --accent-strong:#1E2A4D; --accent-soft:#E1E5F1;
+  --brass:#8A6A1E;
+  --gain:#1E7A4C; --gain-soft:#DCEEE2;
+  --loss:#A23B2E; --loss-soft:#F3DDD8;
+  --rule:#D3CDBB; --rule-strong:#B7B09B;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Archivo',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#14171F; --paper-raised:#1B1F2B; --paper-sunken:#10131A;
+    --ink:#EDEBDF; --ink-soft:#A9AEC0; --ink-faint:#6E7488;
+    --accent:#8C9FDC; --accent-strong:#AAB9E8; --accent-soft:#232B44;
+    --brass:#D8B563;
+    --gain:#55C08A; --gain-soft:#17301F;
+    --loss:#E27C6A; --loss-soft:#3A231F;
+    --rule:#2A2E3C; --rule-strong:#3A3F52;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14171F; --paper-raised:#1B1F2B; --paper-sunken:#10131A;
+  --ink:#EDEBDF; --ink-soft:#A9AEC0; --ink-faint:#6E7488;
+  --accent:#8C9FDC; --accent-strong:#AAB9E8; --accent-soft:#232B44;
+  --brass:#D8B563;
+  --gain:#55C08A; --gain-soft:#17301F;
+  --loss:#E27C6A; --loss-soft:#3A231F;
+  --rule:#2A2E3C; --rule-strong:#3A3F52;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.6}
+.wrap{max-width:640px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+h1{font-family:var(--font-display);font-weight:600;text-wrap:balance;margin:0}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+
+.masthead{margin-bottom:.4rem}
+.masthead h1{font-size:1.7rem;letter-spacing:-.01em}
+.back-link{font-size:.78rem;color:var(--ink-faint);display:block;margin-bottom:2.25rem}
+
+/* --- the whole page's job is this form; nothing competes with it --- */
+.search{display:flex;gap:.5rem;align-items:stretch}
+.search .field{flex:1;min-width:0}
+.search select{flex:0 0 auto;width:auto}
+input,select{font-family:var(--font-body);font-size:.95rem;padding:.65rem .75rem;
+  border:1px solid var(--rule-strong);border-radius:8px;background:var(--paper-raised);color:var(--ink)}
+input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+button{font-family:var(--font-body);font-weight:600;font-size:.9rem;padding:.65rem 1.15rem;
+  border-radius:8px;border:none;background:var(--accent);color:var(--paper-raised);cursor:pointer;flex:0 0 auto}
+button:hover{background:var(--accent-strong)}
+button:disabled{opacity:.6;cursor:default}
+.form-msg{font-size:.8rem;margin-top:.55rem;min-height:1.1em}
+.form-msg.ok{color:var(--gain)} .form-msg.err{color:var(--loss)}
+
+.examples{margin-top:.65rem;font-size:.78rem;color:var(--ink-faint)}
+.chip{font-family:var(--font-mono);background:none;border:1px solid var(--rule-strong);color:var(--ink-soft);
+  border-radius:99px;padding:.15rem .6rem;font-size:.76rem;font-weight:500;cursor:pointer;margin-right:.35rem}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+
+details.glossary{margin-top:1.5rem;font-size:.8rem}
+details.glossary summary{cursor:pointer;color:var(--ink-faint);list-style:none}
+details.glossary summary::after{content:"+";float:right}
+details.glossary[open] summary::after{content:"\2212"}
+details.glossary p{color:var(--ink-soft);margin:.6rem 0 0;line-height:1.7}
+
+.results{margin-top:2.25rem;display:flex;flex-direction:column;gap:1rem}
+.results-empty{color:var(--ink-faint);font-size:.85rem;padding:1rem 0}
+
+.req-pending{display:flex;align-items:center;gap:.6rem;padding:.6rem 0;font-size:.85rem;color:var(--ink-soft)}
+.req-pending .dot{width:7px;height:7px;border-radius:50%;background:var(--brass);flex-shrink:0;
+  animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.req-pending .id{font-family:var(--font-mono);font-weight:700;color:var(--ink)}
+
+.fund-card{background:var(--paper-raised);border:1px solid var(--rule);border-radius:10px;padding:1.15rem 1.3rem}
+.fund-name{font-weight:600;font-size:1.02rem}
+.fund-sub{color:var(--ink-faint);font-size:.76rem;margin-top:.1rem}
+.stat-strip{font-family:var(--font-mono);font-size:.82rem;color:var(--ink-soft);margin-top:.7rem;
+  display:flex;gap:1.1rem;flex-wrap:wrap}
+.stat-strip b{color:var(--ink);font-weight:600;cursor:help}
+.stat-strip .hi b{color:var(--accent)}
+.fund-verdict{font-size:.88rem;color:var(--ink);margin-top:.8rem;line-height:1.65}
+
+footer{margin-top:3rem;padding-top:1.25rem;border-top:1px solid var(--rule);
+  font-size:.75rem;color:var(--ink-faint)}
+</style>
+
+<div class="wrap">
+  <header class="masthead"><h1>Fund Ledger</h1></header>
+  <a class="back-link" href="https://claude.ai/code/artifact/cfc086ce-f8a4-4996-aa33-236b0a10b35a">&larr; Daily Bull-etin</a>
+
+  <form id="eval-form" class="search">
+    <div class="field"><input id="f-id" placeholder="Ticker (US) or scheme code (India)" autocomplete="off"></div>
+    <select id="f-market">
+      <option value="us">US</option>
+      <option value="india">India</option>
+    </select>
+    <button type="submit" id="f-submit">Evaluate</button>
+  </form>
+  <div class="form-msg" id="f-msg"></div>
+  <div class="examples">
+    Try:
+    <button type="button" class="chip" data-id="FXAIX" data-market="us">FXAIX</button>
+    <button type="button" class="chip" data-id="VTSAX" data-market="us">VTSAX</button>
+    <button type="button" class="chip" data-id="122639" data-market="india">122639 (Parag Parikh)</button>
+  </div>
+
+  <details class="glossary">
+    <summary>What do these mean?</summary>
+    <p>Std dev = how bumpy the ride is &middot; Beta = how much it swings versus the benchmark
+      &middot; Alpha = whether it beat what its risk level predicts &middot; Sharpe = reward
+      earned per unit of risk &middot; R<sup>2</sup> = how much of that swing the benchmark
+      actually explains (low R<sup>2</sup> means treat beta/alpha with caution). India funds
+      have no ticker &mdash; find a scheme code by name at
+      <a href="https://www.mfapi.in/" target="_blank" rel="noopener">mfapi.in</a>. Evaluations
+      are computed by Claude, not instantly &mdash; after requesting, ask in your Claude Code
+      session to process pending fund requests.</p>
+  </details>
+
+  <div class="results" id="results"></div>
+
+  <footer>Informational research only &mdash; not financial advice. Sources: yfinance, mfapi.in.</footer>
+</div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<script>
+const esc = s => (s==null?'':String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function capStdDev(v){ return v < 10 ? 'fairly calm' : v < 20 ? 'moderate ups and downs' : 'a bumpy ride'; }
+function capBeta(v, bench){ return v < 0.8 ? `moves less than ${bench}` : v <= 1.2 ? `moves about with ${bench}` : `swings more than ${bench}`; }
+function capAlpha(v){ return v > 0.5 ? 'beat expectations' : v < -0.5 ? 'fell short of expectations' : 'about as expected'; }
+function capSharpe(v){ return v < 0 ? 'lost money for the risk taken' : v < 0.5 ? 'weak reward for the risk' : v < 1 ? 'decent reward for the risk' : 'strong reward for the risk'; }
+function capRSquared(v){ return v >= 80 ? 'closely tracks the benchmark' : v >= 50 ? 'partly tracks the benchmark' : 'moves mostly on its own'; }
+
+function fundCard(f){
+  const bench = f.benchmark || 'the benchmark';
+  return `<div class="fund-card">
+    <div class="fund-name">${esc(f.name)}</div>
+    <div class="fund-sub mono">${esc(f.fund_id)} &middot; ${esc(f.market)}</div>
+    <div class="stat-strip">
+      <span title="${esc(capStdDev(f.std_dev))}">&sigma; <b>${Number(f.std_dev).toFixed(2)}%</b></span>
+      <span title="${esc(capBeta(f.beta, bench))}">&beta; <b>${Number(f.beta).toFixed(2)}</b></span>
+      <span title="${esc(capAlpha(f.alpha))}">&alpha; <b>${Number(f.alpha).toFixed(2)}%</b></span>
+      <span class="hi" title="${esc(capSharpe(f.sharpe))}">Sharpe <b>${Number(f.sharpe).toFixed(2)}</b></span>
+      <span title="${esc(capRSquared(f.r_squared))}">R&sup2; <b>${Number(f.r_squared).toFixed(1)}%</b></span>
+    </div>
+    ${f.explanation ? `<p class="fund-verdict">${esc(f.explanation)}</p>` : ''}
+  </div>`;
+}
+
+(async () => {
+  const dbCap = (typeof claude !== 'undefined' && claude.use) ? await claude.use('db') : null;
+  const idInput = document.getElementById('f-id');
+  const marketSel = document.getElementById('f-market');
+  const msg = document.getElementById('f-msg');
+  const submitBtn = document.getElementById('f-submit');
+  const results = document.getElementById('results');
+
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+    idInput.value = c.dataset.id; marketSel.value = c.dataset.market; idInput.focus();
+  }));
+
+  if (!dbCap) {
+    submitBtn.disabled = true;
+    msg.textContent = 'Live requests need this page opened in claude.ai.';
+    msg.className = 'form-msg err';
+    results.innerHTML = '<p class="results-empty">Open this page in claude.ai to evaluate a fund.</p>';
+    return;
+  }
+
+  document.getElementById('eval-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fundId = idInput.value.trim(), market = marketSel.value;
+    if (!fundId) { msg.textContent = 'Enter a ticker or scheme code first.'; msg.className = 'form-msg err'; return; }
+    submitBtn.disabled = true;
+    try {
+      await dbCap.collection('requests').add({
+        market, fund_id: fundId, status: 'pending', requested_at: new Date().toISOString(),
+      });
+      msg.textContent = 'Requested - it will appear below once evaluated.';
+      msg.className = 'form-msg ok';
+      idInput.value = '';
+    } catch (err) {
+      msg.textContent = 'Could not save the request (' + (err && err.code || 'error') + ').';
+      msg.className = 'form-msg err';
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+
+  dbCap.collection('requests').orderBy('requested_at', 'desc').limit(20).onSnapshot(
+    (snap) => {
+      if (snap.empty) { results.innerHTML = '<p class="results-empty">No funds evaluated yet &mdash; try one above.</p>'; return; }
+      results.innerHTML = snap.docs.map(doc => {
+        const d = doc.data();
+        if (d.status === 'done' && d.result) return fundCard(d.result);
+        return `<div class="req-pending"><span class="dot"></span>
+          Evaluating <span class="id mono">${esc(d.fund_id)}</span>&hellip;</div>`;
+      }).join('');
+    },
+    (err) => { results.innerHTML = `<p class="results-empty">Requests unavailable (${esc(err.code)}).</p>`; }
+  );
+})();
+</script>

@@ -1,5 +1,10 @@
 # Stock Signal Bot
 
+**Live pages:** [Daily Bull-etin](https://claude.ai/code/artifact/cfc086ce-f8a4-4996-aa33-236b0a10b35a)
+(daily digest + scorecard) · [Fund Ledger](https://claude.ai/code/artifact/8dd634da-39b4-4aa5-9eb4-0d37726d9b5e)
+(mutual fund evaluator). See [DECISIONS.md](DECISIONS.md) for the full
+history of what's been built and why.
+
 Daily news-driven directional digest for the **S&P 500 (US)** and **Nifty 50
 (India)**. For each market it:
 
@@ -69,34 +74,49 @@ the detail seasoned users want. `claude_client.py` holds the shared
 Claude-response helpers (ThinkingBlock-safe text extraction, JSON-fence
 stripping, max_tokens truncation check) used by both this and `analyze.py`.
 
-## Web dashboard
+## Web dashboard — two pages
 
-A published Claude Artifact — **Daily Bull-etin** — shows the latest digest
-for both markets, the curated fund leaderboard, an on-demand fund evaluator,
-and the real performance scorecard (including the conviction-vs-alpha chart
-that first surfaced the conviction-inversion finding). It's a *manually
-refreshed* snapshot, not a live-updating site — a published Artifact page
-can't call our own Turso API directly (the sandbox's script-only CDN
-allowlist blocks arbitrary `fetch`), so:
+Two separately published Claude Artifacts, split on explicit user feedback
+that the fund evaluator's detail (5 stats + a paragraph per fund) was too
+much unrequested content on the page you check daily for stock picks:
+
+- **Daily Bull-etin** (`scripts/dashboard_template.html` →
+  `scripts/dashboard.html`) — the latest digest for both markets and the
+  real performance scorecard (including the conviction-vs-alpha chart that
+  surfaced the conviction-inversion finding). No fund content beyond a
+  one-line teaser linking to the second page. No `db` capability needed —
+  purely a static snapshot.
+- **Fund Ledger** (`scripts/fund_ledger.html`, hand-authored — no data to
+  embed, so no render step) — the mutual fund evaluator, on its own page.
+  **Starts empty.** A fund only appears here once someone has actually
+  requested it through the form; there's no preloaded curated list.
+
+Both are *manually refreshed* snapshots, not live-updating — a published
+Artifact page can't call our own Turso API directly (the sandbox's
+script-only CDN allowlist blocks arbitrary `fetch`). To refresh the digest:
 
 ```
 .venv/bin/python scripts/render_dashboard.py   # pulls fresh Turso data into scripts/dashboard.html
 ```
 
-then republish `scripts/dashboard.html` to the same Artifact URL. The
-**fund evaluator is genuinely interactive** via the Artifact `db`
-capability: a viewer submits a fund → it's written to a `requests`
-collection as `pending` → ask Claude (in a session with access to this
-project) to process pending requests → Claude runs `evaluate_funds.py` and
-writes the result back → every open viewer sees it update live via
-`onSnapshot`, no republish needed. This is asynchronous by design, not
-instant — there's no way for a static page to run real computation on
-demand, so the honest design is "request now, computed next time someone's
-here to fulfill it," not a fake instant answer.
+then republish `scripts/dashboard.html` to its Artifact URL (Fund Ledger
+needs no data refresh — it's pure live interaction).
+
+The **fund evaluator is genuinely interactive** via the Artifact `db`
+capability: a viewer submits a fund → written to a `requests` collection
+as `pending` → ask Claude (in a session with access to this project) to
+process pending requests → Claude runs `evaluate_funds.py` and writes the
+result back → every open viewer sees it update live via `onSnapshot`, no
+republish needed. This is asynchronous by design, not instant — there's no
+way for a static page to run real computation on demand, so the honest
+design is "request now, computed next time someone's here to fulfill it,"
+not a fake instant answer.
 
 Design: "ink ledger" theme — Fraunces (display) + Archivo (body) + IBM Plex
 Mono (tabular data), deep ink-indigo accent kept separate from the
-semantic green/red gain/loss colors, dark mode fully implemented.
+semantic green/red gain/loss colors, dark mode fully implemented. Both
+pages share the same token system (duplicated — each Artifact is a fully
+self-contained document, no shared stylesheet between them).
 
 ## Run
 

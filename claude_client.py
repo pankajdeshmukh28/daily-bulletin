@@ -19,7 +19,12 @@ def parse_json(text: str) -> dict:
     if text.startswith("```"):
         text = text.split("```")[1]
         text = text.removeprefix("json").strip()
-    return json.loads(text)
+    # strict=False: Claude sometimes emits a literal newline/tab inside a
+    # JSON string value (e.g. a multi-sentence thesis) instead of an
+    # escaped \n — strict JSON parsing rejects that with "Invalid control
+    # character" (two real production failures, 2026-09-21, both digests).
+    # Python's json module supports exactly this relaxation deliberately.
+    return json.loads(text, strict=False)
 
 
 def require_complete(response):

@@ -189,6 +189,10 @@ Rows logged before signal types existed show as `untagged`.
 
 ## Scheduling (GitHub Actions)
 
+> **Currently paused** (2026-10-20) — the workflow is disabled to avoid
+> spending API credits. Nothing runs on schedule. Re-enable with
+> `gh workflow enable "Daily Bull-etin" --repo pankajdeshmukh28/daily-bulletin`.
+
 `.github/workflows/daily.yml` runs the digests in the cloud so no local
 machine needs to be on:
 
